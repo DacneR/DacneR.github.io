@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dacner - Portafolio</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- Font Awesome local para evitar bloqueos -->
+    <style>
+        /* Iconos básicos como fallback */
+        .fa-code:before { content: "💻"; }
+        .fa-shopping-cart:before { content: "🛒"; }
+        .fa-tasks:before { content: "✅"; }
+        .fa-chart-line:before { content: "📊"; }
+        .fa-envelope:before { content: "✉️"; }
+        .fa-github:before { content: "🐙"; }
+        .fa-linkedin:before { content: "💼"; }
+        .fa-twitter:before { content: "🐦"; }
+        .fa-external-link-alt:before { content: "🔗"; }
+    </style>
+</head>
+<body>
+    <!-- Navegación Simple -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">LOGO</a>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Inicio</a>
+                <a href="#about" class="nav-link">Sobre Mí</a>
+                <a href="#skills" class="nav-link">Habilidades</a>
+                <a href="#projects" class="nav-link">Proyectos</a>
+                <a href="#contact" class="nav-link">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Dacner Esteban Patiño Piedrahita</h1>
+                <p class="hero-subtitle">Desarrollador de software</p>
+                <p class="hero-description">
+                    Creo soluciones web modernas con tecnologías como React, .NET y Node.js.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
+                    <a href="#contact" class="btn btn-secondary">Contacto</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <span class="icon">💻</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <p>
+                    Desarrollador apasionado con experiencia en crear aplicaciones web completas. 
+                    Me especializo en el stack MERN y .NET, siempre buscando las mejores prácticas 
+                    y código limpio.
+                </p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>2+</h3>
+                        <p>Años de Experiencia</p>
+                    </div>
+                    <div class="stat">
+                        <h3>20+</h3>
+                        <p>Proyectos Completados</p>
+                    </div>
+                    <div class="stat">
+                        <h3>5+</h3>
+                        <p>Tecnologías Dominadas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Tailwind</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">.NET</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Express</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <span class="icon">🛒</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce React</h3>
+                        <p>Plataforma completa de comercio electrónico con carrito y pasarela de pagos.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dacner/ecommerce-react" class="project-link">
+                                <span class="icon">🐙</span> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <span class="icon">✅</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Manager</h3>
+                        <p>Aplicación de gestión de tareas con funciones de arrastrar y soltar.</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>Firebase</span>
+                            <span>SCSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dacner/task-manager" class="project-link">
+                                <span class="icon">🐙</span> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <span class="icon">📊</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Analytics Dashboard</h3>
+                        <p>Dashboard interactivo con gráficos y reportes en tiempo real.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>D3.js</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dacner/analytics-dashboard" class="project-link">
+                                <span class="icon">🐙</span> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="icon">✉️</span>
+                        <div>
+                            <h3>Email</h3>
+                            <p>dacner@ejemplo.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">🐙</span>
+                        <div>
+                            <h3>GitHub</h3>
+                            <p>github.com/dacner</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">💼</span>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p>linkedin.com/in/dacner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Dacner Patiño.</p>
+            <div class="social-links">
+                <a href="https://github.com/dacner"><span class="icon">🐙</span></a>
+                <a href="https://linkedin.com/in/dacner"><span class="icon">💼</span></a>
+                <a href="#"><span class="icon">🐦</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
