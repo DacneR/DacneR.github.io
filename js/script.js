@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Efecto de partículas en el hero (simple)
     function createParticles() {
-        const hero = document.querySelector('.hero');
+        const hero = document.querySelector('#home');
         if (!hero) return;
         
         for (let i = 0; i < 15; i++) {
