@@ -62,417 +62,460 @@
 <body class="font-sans text-gray-800 bg-white">
     
     <!-- Navegación -->
-    <nav id="navbar" class="navbar fixed top-0 w-full bg-white/95 backdrop-blur-lg z-50 py-4 border-b border-gray-200 transition-all duration-300">
-        <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
-            <div class="text-2xl font-bold">
-                <a href="#home" class="bg-gradient-primary bg-clip-text text-transparent">DP</a>
+    <!-- Navegación como Sidebar Izquierdo -->
+    <!-- Sidebar Izquierdo Optimizado y Compacto -->
+    <nav id="navbar" class="fixed left-0 top-0 h-screen w-52 bg-white/97 backdrop-blur-md z-50 border-r border-gray-100 transition-all duration-300 flex flex-col shadow-sm">
+        <!-- Logo e Imagen COMPACTA -->
+        <div class="p-5 border-b border-gray-100">
+            <div class="flex flex-col items-center">
+                <a href="#home" class="block hover:scale-105 transition-transform duration-300">
+                    <!-- Imagen reducida significativamente -->
+                    <img src="/assets/Avatar-cartoon.jpg" alt="DP" 
+                        class="h-40 w-32 rounded-full border-3 border-primary hover:border-accent transition-all duration-300 object-cover shadow-md">
+                </a>
+                <p class="mt-3 text-sm font-medium text-gray-700">Dacner Patiño</p>
+                <p class="text-xs text-gray-500">Full-Stack Dev</p>
             </div>
-            <div class="hidden md:flex gap-8">
-                <a href="#home" class="text-gray-800 font-medium relative nav-link-hover hover:text-primary transition duration-300">Inicio</a>
-                <a href="#about" class="text-gray-800 font-medium relative nav-link-hover hover:text-primary transition duration-300">Sobre Mí</a>
-                <a href="#experience" class="text-gray-800 font-medium relative nav-link-hover hover:text-primary transition duration-300">Experiencia</a>
-                <a href="#skills" class="text-gray-800 font-medium relative nav-link-hover hover:text-primary transition duration-300">Habilidades</a>
-                <a href="#projects" class="text-gray-800 font-medium relative nav-link-hover hover:text-primary transition duration-300">Proyectos</a>
-                <a href="#contact" class="text-gray-800 font-medium relative nav-link-hover hover:text-primary transition duration-300">Contacto</a>
-            </div>
-            <!-- Menú móvil -->
-            <button class="md:hidden text-gray-800 text-2xl" id="menuBtn">☰</button>
         </div>
-        <!-- Menú móvil desplegable -->
-        <div class="md:hidden hidden bg-white border-b" id="mobileMenu">
-            <div class="flex flex-col py-4 px-4 gap-4">
-                <a href="#home" class="text-gray-800 font-medium hover:text-primary transition">Inicio</a>
-                <a href="#about" class="text-gray-800 font-medium hover:text-primary transition">Sobre Mí</a>
-                <a href="#experience" class="text-gray-800 font-medium hover:text-primary transition">Experiencia</a>
-                <a href="#skills" class="text-gray-800 font-medium hover:text-primary transition">Habilidades</a>
-                <a href="#projects" class="text-gray-800 font-medium hover:text-primary transition">Proyectos</a>
-                <a href="#contact" class="text-gray-800 font-medium hover:text-primary transition">Contacto</a>
+
+        <!-- Enlaces de Navegación COMPACTOS -->
+        <div class="flex-1 px-3 py-4">
+            <div class="flex flex-col gap-1.5"> <!-- Gap reducido a 1.5 -->
+                <a href="#home" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                    <span class="text-lg opacity-80 group-hover:opacity-100">🏠</span>
+                    <span class="font-medium text-sm">Inicio</span>
+                </a>
+
+                <a href="#experience" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                    <span class="text-lg opacity-80 group-hover:opacity-100">💼</span>
+                    <span class="font-medium text-sm">Experiencia</span>
+                </a>
+                
+                <a href="#skills" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                    <span class="text-lg opacity-80 group-hover:opacity-100">🛠️</span>
+                    <span class="font-medium text-sm">Habilidades</span>
+                </a>
+                
+                <a href="#projects" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                    <span class="text-lg opacity-80 group-hover:opacity-100">📁</span>
+                    <span class="font-medium text-sm">Proyectos</span>
+                </a>
+                
+                <a href="#contact" 
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                    <span class="text-lg opacity-80 group-hover:opacity-100">📞</span>
+                    <span class="font-medium text-sm">Contacto</span>
+                </a>
             </div>
+        </div>
+
+        <!-- Footer Compacto -->
+        <div class="p-4 border-t border-gray-100 mt-auto">
+            <div class="flex justify-center gap-3 mb-3">
+                <a href="mailto:Dacnerpiedrahita@gmail.com" 
+                class="text-gray-500 hover:text-primary hover:bg-primary/10 p-1.5 rounded transition-all duration-200 text-sm">
+                    ✉️
+                </a>
+                <a href="tel:+573242265806" 
+                class="text-gray-500 hover:text-primary hover:bg-primary/10 p-1.5 rounded transition-all duration-200 text-sm">
+                    📞
+                </a>
+                <a href="https://github.com/DacneR" target="_blank" 
+                class="text-gray-500 hover:text-primary hover:bg-primary/10 p-1.5 rounded transition-all duration-200 text-sm">
+                    🐙
+                </a>
+            </div>
+            <p class="text-xs text-gray-400 text-center">&copy; 2025</p>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen bg-gradient-primary text-white pt-20 md:pt-24">
-        <div class="container mx-auto px-4 md:px-8 py-16 md:py-24">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                <!-- Imagen de perfil -->
-                <div class="order-2 md:order-1 flex-shrink-0">
-                    <div class="relative">
-                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-white/10 backdrop-blur-sm border-4 border-white/20 flex items-center justify-center">
-                            <span class="text-6xl md:text-8xl font-bold bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent">DP</span>
+    <!-- Botón para menú móvil (solo visible en móvil) -->
+    <button id="mobileMenuToggle" class="fixed top-6 left-6 z-50 md:hidden bg-white p-3 rounded-full shadow-lg text-gray-800 text-xl">
+        ☰
+    </button>
+
+    <!-- Overlay para móvil -->
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
+
+    <!-- Contenido principal -->
+    <main class="md:ml-64 min-h-screen transition-all duration-300">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen bg-gradient-primary text-white pt-20 md:pt-24">
+            <div class="container mx-auto px-4 md:px-8 py-16 md:py-24">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                    <!-- Contenido -->
+                    <div class="order-1 md:order-2 text-center md:text-left max-w-2xl">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                            <span class="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">Dacner Patiño</span>
+                        </h1>
+                        
+                        <div class="h-16 mb-6">
+                            <p class="text-2xl md:text-3xl font-semibold text-accent typewriter">
+                                Desarrollador Full-Stack
+                            </p>
                         </div>
-                        <div class="absolute -bottom-2 -right-2 bg-accent text-gray-900 font-bold py-2 px-6 rounded-full text-sm">
-                            Disponible
+                        
+                        <p class="text-lg md:text-xl mb-10 leading-relaxed opacity-90">
+                            Especializado en <strong>.NET</strong>, <strong>Odoo</strong> y soluciones backend. 
+                            Apasionado por la resolución de problemas complejos y el código limpio.
+                        </p>
+                        
+                        <!-- Botones -->
+                        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                            <a href="#contact" class="bg-accent text-gray-900 font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center">
+                                Contactar Ahora
+                            </a>
+                            <a href="#projects" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-xl hover:bg-white hover:text-gray-900 transition-all duration-300 text-center">
+                                Ver Proyectos
+                            </a>
+                            <button onclick="downloadCV()" class="bg-warning text-gray-900 font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center flex items-center justify-center gap-2">
+                                <span>📥</span> Descargar CV
+                            </button>
+                        </div>
+                        
+                        <!-- Estadísticas -->
+                        <div class="flex flex-wrap justify-center md:justify-start gap-8 md:gap-12">
+                            <div class="text-center">
+                                <div class="text-3xl md:text-4xl font-bold text-accent">2+</div>
+                                <div class="opacity-80">Años Experiencia</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl md:text-4xl font-bold text-accent">10+</div>
+                                <div class="opacity-80">Proyectos Completados</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl md:text-4xl font-bold text-accent">5+</div>
+                                <div class="opacity-80">Tecnologías Dominadas</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        
+
+        <!-- habilidades -->
+        
+            <div class="container mx-auto px-4 md:px-8 py-20 bg-white">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
+                    Sobre Mí
+                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
+                </h2>
                 
-                <!-- Contenido -->
-                <div class="order-1 md:order-2 text-center md:text-left max-w-2xl">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        <span class="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">Dacner Patiño</span>
-                    </h1>
-                    
-                    <div class="h-16 mb-6">
-                        <p class="text-2xl md:text-3xl font-semibold text-accent typewriter">
-                            Desarrollador Full-Stack
-                        </p>
-                    </div>
-                    
-                    <p class="text-lg md:text-xl mb-10 leading-relaxed opacity-90">
-                        Especializado en <strong>.NET</strong>, <strong>Odoo</strong> y soluciones backend. 
-                        Apasionado por la resolución de problemas complejos y el código limpio.
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg md:text-xl text-gray-600 text-center mb-12 leading-relaxed">
+                        Profesional motivado con pasión por la tecnología y el desarrollo digital, 
+                        con competencias en desarrollo backend, bases de datos y programación. 
+                        Me destaco por mi capacidad de adaptación, trabajo bajo presión y 
+                        dedicación para lograr resultados de calidad.
                     </p>
                     
-                    <!-- Botones -->
-                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                        <a href="#contact" class="bg-accent text-gray-900 font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center">
-                            Contactar Ahora
-                        </a>
-                        <a href="#projects" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-xl hover:bg-white hover:text-gray-900 transition-all duration-300 text-center">
-                            Ver Proyectos
-                        </a>
-                        <button onclick="downloadCV()" class="bg-warning text-gray-900 font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center flex items-center justify-center gap-2">
-                            <span>📥</span> Descargar CV
-                        </button>
-                    </div>
-                    
-                    <!-- Estadísticas -->
-                    <div class="flex flex-wrap justify-center md:justify-start gap-8 md:gap-12">
-                        <div class="text-center">
-                            <div class="text-3xl md:text-4xl font-bold text-accent">2+</div>
-                            <div class="opacity-80">Años Experiencia</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl md:text-4xl font-bold text-accent">10+</div>
-                            <div class="opacity-80">Proyectos Completados</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl md:text-4xl font-bold text-accent">5+</div>
-                            <div class="opacity-80">Tecnologías Dominadas</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sobre Mí -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-4 md:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
-                Sobre Mí
-                <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
-            </h2>
-            
-            <div class="max-w-4xl mx-auto">
-                <p class="text-lg md:text-xl text-gray-600 text-center mb-12 leading-relaxed">
-                    Profesional motivado con pasión por la tecnología y el desarrollo digital, 
-                    con competencias en desarrollo backend, bases de datos y programación. 
-                    Me destaco por mi capacidad de adaptación, trabajo bajo presión y 
-                    dedicación para lograr resultados de calidad.
-                </p>
-                
-                <div class="space-y-6">
-                    <div class="flex items-start gap-6 p-6 bg-gray-50 rounded-xl border-l-4 border-primary">
-                        <span class="text-2xl">🎓</span>
-                        <div>
-                            <strong class="text-lg">Tecnólogo en Desarrollo de Software</strong>
-                            <p class="text-gray-600">Institución Universitaria Pascual Bravo · 2022-2025</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-6 p-6 bg-gray-50 rounded-xl border-l-4 border-primary">
-                        <span class="text-2xl">🎓</span>
-                        <div>
-                            <strong class="text-lg">Técnico en Desarrollo de Software</strong>
-                            <p class="text-gray-600">Institución Educativa Dinamarca · 2020-2021</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-6 p-6 bg-gray-50 rounded-xl border-l-4 border-primary">
-                        <span class="text-2xl">📍</span>
-                        <div>
-                            <strong class="text-lg">Ubicación</strong>
-                            <p class="text-gray-600">Medellín, Colombia</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experiencia -->
-    <section id="experience" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 md:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
-                Experiencia Laboral
-                <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
-            </h2>
-            
-            <div class="max-w-4xl mx-auto relative">
-                <!-- Línea de tiempo -->
-                <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-primary hidden md:block"></div>
-                
-                <!-- Item 1 -->
-                <div class="flex flex-col md:flex-row mb-12 relative">
-                    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
-                        <div class="font-bold text-primary">Oct 2025 – Nov 2025</div>
-                    </div>
-                    <div class="md:w-1/2 md:pl-12">
-                        <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-accent">
-                            <h3 class="text-xl font-bold text-secondary mb-2">Programador Odoo</h3>
-                            <h4 class="text-lg text-primary mb-4">REALNET</h4>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Desarrollo de funcionalidades y mantenimiento de aplicativos internos de la compañía, 
-                                con énfasis en la personalización y programación sobre <strong>Odoo 18 y 18.2 (Enterprise y Community)</strong>. 
-                                Encargado de resolver problemas lógicos en sistemas complejos.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">Odoo 18</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">Python</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">PostgreSQL</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Item 2 -->
-                <div class="flex flex-col md:flex-row mb-12 relative">
-                    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0 order-2 md:order-1">
-                        <div class="font-bold text-primary">Feb 2025 – Ago 2025</div>
-                    </div>
-                    <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
-                        <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-accent">
-                            <h3 class="text-xl font-bold text-secondary mb-2">Desarrollador Frontend</h3>
-                            <h4 class="text-lg text-primary mb-4">CRYSTAL S.A.S</h4>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Desarrollo enfocado a aplicativos internos de la empresa y resolución de problemas lógicos 
-                                para sistemas complejos, guardando la armonía del front y respetando su tableta de colores.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">React</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">CSS3</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">UI/UX</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Habilidades -->
-    <section id="skills" class="py-20 bg-white">
-        <div class="container mx-auto px-4 md:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
-                Habilidades Técnicas
-                <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
-            </h2>
-            
-            <!-- Pirámide de habilidades -->
-            <div class="max-w-4xl mx-auto">
-                <!-- Fila superior -->
-                <div class="flex justify-center mb-8">
-                    <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent w-full max-w-xs text-center">
-                        <h4 class="text-xl font-bold text-secondary mb-3">Resolución de Problemas</h4>
-                        <p class="text-gray-600">Análisis y solución de problemas lógicos complejos</p>
-                    </div>
-                </div>
-                
-                <!-- Fila media -->
-                <div class="flex flex-col md:flex-row justify-center gap-8 mb-8">
-                    <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-primary w-full max-w-xs text-center">
-                        <h4 class="text-xl font-bold text-secondary mb-3">Backend</h4>
-                        <p class="text-gray-600">.NET, Node.js, APIs REST</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-warning w-full max-w-xs text-center">
-                        <h4 class="text-xl font-bold text-secondary mb-3">Frontend</h4>
-                        <p class="text-gray-600">React, HTML5, CSS3, JavaScript</p>
-                    </div>
-                </div>
-                
-                <!-- Fila inferior -->
-                <div class="flex flex-col md:flex-row justify-center gap-8">
-                    <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-purple-500 w-full max-w-xs text-center">
-                        <h4 class="text-xl font-bold text-secondary mb-3">Bases de Datos</h4>
-                        <p class="text-gray-600">MySQL, MongoDB, PostgreSQL</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-warning w-full max-w-xs text-center">
-                        <h4 class="text-xl font-bold text-secondary mb-3">Odoo</h4>
-                        <p class="text-gray-600">Enterprise & Community</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent w-full max-w-xs text-center">
-                        <h4 class="text-xl font-bold text-secondary mb-3">Tools</h4>
-                        <p class="text-gray-600">Git, Linux, Docker</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Proyectos -->
-    <section id="projects" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 md:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
-                Proyectos Destacados
-                <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Proyecto 1 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
-                    <div class="h-48 bg-gradient-primary flex items-center justify-center">
-                        <span class="text-6xl">🚀</span>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold text-secondary mb-4">Sistema de Gestión Odoo</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Desarrollo y personalización de módulos Odoo 18 para gestión empresarial, incluyendo customizaciones específicas para procesos internos.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">Odoo 18</span>
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">Python</span>
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">PostgreSQL</span>
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">XML</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="bg-accent text-gray-900 font-bold py-2 px-4 rounded-full text-sm">Proyecto Empresarial</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Proyecto 2 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
-                    <div class="h-48 bg-gradient-accent flex items-center justify-center">
-                        <span class="text-6xl">💎</span>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold text-secondary mb-4">Aplicativos Internos Crystal S.A.S</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Desarrollo frontend de aplicaciones internas con enfoque en experiencia de usuario y mantenimiento de sistemas legacy.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">React</span>
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">JavaScript</span>
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">CSS3</span>
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">.NET</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="bg-accent text-gray-900 font-bold py-2 px-4 rounded-full text-sm">Proyecto Corporativo</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Proyecto 3 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
-                    <div class="h-48 bg-gradient-to-br from-warning to-yellow-400 flex items-center justify-center">
-                        <span class="text-6xl">💻</span>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold text-secondary mb-4">Portafolio Personal</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Landing page moderna y responsive desarrollada con HTML5, CSS3 y JavaScript vanilla. Optimizada para SEO y performance.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">HTML5</span>
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">CSS3</span>
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">JavaScript</span>
-                            <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">GitHub Pages</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <a href="https://github.com/dacner/portafolio" class="text-primary font-bold flex items-center gap-2 hover:text-accent transition">
-                                <span>🐙</span> Código
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contact" class="py-20 bg-secondary text-white">
-        <div class="container mx-auto px-4 md:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative">
-                Contacto y Referencias
-                <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-accent rounded"></div>
-            </h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <!-- Información de contacto -->
-                <div class="space-y-6">
-                    <div class="flex items-start gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                        <span class="text-2xl">📞</span>
-                        <div>
-                            <h3 class="text-xl font-bold text-accent mb-2">Teléfono</h3>
-                            <p>+57 3242265806</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                        <span class="text-2xl">✉️</span>
-                        <div>
-                            <h3 class="text-xl font-bold text-accent mb-2">Email</h3>
-                            <p>Dacnerpiedrahita@gmail.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                        <span class="text-2xl">📍</span>
-                        <div>
-                            <h3 class="text-xl font-bold text-accent mb-2">Ubicación</h3>
-                            <p>Medellín, Colombia</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Referencias -->
-                <div>
-                    <h3 class="text-2xl font-bold text-accent mb-8">Referencias Profesionales</h3>
                     <div class="space-y-6">
-                        <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                            <h4 class="text-xl font-bold mb-2">Ana Iondoño</h4>
-                            <p class="text-gray-300 mb-1">Crystal S.A.S</p>
-                            <p>3207178762</p>
+                        <div class="flex items-start gap-6 p-6 bg-gray-50 rounded-xl border-l-4 border-primary">
+                            <span class="text-2xl">🎓</span>
+                            <div>
+                                <strong class="text-lg text-gray-600">Tecnólogo en Desarrollo de Software</strong>
+                                <p class="text-gray-600">Institución Universitaria Pascual Bravo · 2022-2025</p>
+                            </div>
                         </div>
                         
-                        <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                            <h4 class="text-xl font-bold mb-2">Jenny Hernández</h4>
-                            <p class="text-gray-300 mb-1">Realnet</p>
-                            <p>302 2187951</p>
+                        <div class="flex items-start gap-6 p-6 bg-gray-50 rounded-xl border-l-4 border-primary">
+                            <span class="text-2xl">🎓</span>
+                            <div>
+                                <strong class="text-lg text-gray-600">Técnico en Desarrollo de Software</strong>
+                                <p class="text-gray-600">Institución Educativa Dinamarca · 2020-2021</p>
+                            </div>
                         </div>
                         
-                        <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                            <h4 class="text-xl font-bold mb-2">Sebastián Orrego</h4>
-                            <p class="text-gray-300 mb-1">Crystal S.A.S</p>
-                            <p>3215717145</p>
+                        <div class="flex items-start gap-6 p-6 bg-gray-50  rounded-xl border-l-4 border-primary">
+                            <span class="text-2xl">📍</span>
+                            <div>
+                                <strong class="text-lg text-gray-600">Ubicación</strong>
+                                <p class="text-gray-600">Medellín, Colombia</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="py-12 bg-gray-900 text-white">
-        <div class="container mx-auto px-4 md:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-center md:text-left">&copy; 2025 Dacner Patiño - Desarrollador de Software</p>
-                <div class="flex gap-6">
-                    <a href="mailto:Dacnerpiedrahita@gmail.com" class="text-2xl hover:text-accent transition">
-                        ✉️
-                    </a>
-                    <a href="tel:+573242265806" class="text-2xl hover:text-accent transition">
-                        📞
-                    </a>
+        <!-- Experiencia -->
+        <section id="experience" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
+                    Experiencia Laboral
+                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
+                </h2>
+                
+                <div class="max-w-4xl mx-auto relative">
+                    <!-- Línea de tiempo -->
+                    <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-primary hidden md:block"></div>
+                    
+                    <!-- Item 1 -->
+                    <div class="flex flex-col md:flex-row mb-12 relative">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                            <div class="font-bold text-primary">Oct 2025 – Nov 2025</div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-accent">
+                                <h3 class="text-xl font-bold text-secondary mb-2">Programador Odoo</h3>
+                                <h4 class="text-lg text-primary mb-4">REALNET</h4>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    Desarrollo de funcionalidades y mantenimiento de aplicativos internos de la compañía, 
+                                    con énfasis en la personalización y programación sobre <strong>Odoo 18 y 18.2 (Enterprise y Community)</strong>. 
+                                    Encargado de resolver problemas lógicos en sistemas complejos.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">Odoo 18</span>
+                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">Python</span>
+                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">PostgreSQL</span>
+                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="flex flex-col md:flex-row mb-12 relative">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0 order-2 md:order-1">
+                            <div class="font-bold text-primary">Feb 2025 – Ago 2025</div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-accent">
+                                <h3 class="text-xl font-bold text-secondary mb-2">Desarrollador Frontend</h3>
+                                <h4 class="text-lg text-primary mb-4">CRYSTAL S.A.S</h4>
+                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                    Desarrollo enfocado a aplicativos internos de la empresa y resolución de problemas lógicos 
+                                    para sistemas complejos, guardando la armonía del front y respetando su tableta de colores.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">React</span>
+                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
+                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">CSS3</span>
+                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">UI/UX</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </section>
 
+        <!-- Habilidades -->
+        <section id="skills" class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
+                    Habilidades Técnicas
+                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
+                </h2>
+                
+                <!-- Pirámide de habilidades -->
+                <div class="max-w-4xl mx-auto">
+                    <!-- Fila superior -->
+                    <div class="flex justify-center mb-8">
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-secondary mb-3">Resolución de Problemas</h4>
+                            <p class="text-gray-600">Análisis y solución de problemas lógicos complejos</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Fila media -->
+                    <div class="flex flex-col md:flex-row justify-center gap-8 mb-8">
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-primary w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-secondary mb-3">Backend</h4>
+                            <p class="text-gray-600">.NET, Node.js, APIs REST</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-warning w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-secondary mb-3">Frontend</h4>
+                            <p class="text-gray-600">React, HTML5, CSS3, JavaScript</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Fila inferior -->
+                    <div class="flex flex-col md:flex-row justify-center gap-8">
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-purple-500 w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-secondary mb-3">Bases de Datos</h4>
+                            <p class="text-gray-600">MySQL, MongoDB, PostgreSQL</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-warning w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-secondary mb-3">Odoo</h4>
+                            <p class="text-gray-600">Enterprise & Community</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-secondary mb-3">Tools</h4>
+                            <p class="text-gray-600">Git, Linux, Docker</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos -->
+        <section id="projects" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
+                    Proyectos Destacados
+                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Proyecto 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <div class="h-48 bg-gradient-primary flex items-center justify-center">
+                            <span class="text-6xl">🚀</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-bold text-secondary mb-4">Sistema de Gestión Odoo</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Desarrollo y personalización de módulos Odoo 18 para gestión empresarial, incluyendo customizaciones específicas para procesos internos.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">Odoo 18</span>
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">Python</span>
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">PostgreSQL</span>
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">XML</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="bg-accent text-gray-900 font-bold py-2 px-4 rounded-full text-sm">Proyecto Empresarial</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Proyecto 2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <div class="h-48 bg-gradient-accent flex items-center justify-center">
+                            <span class="text-6xl">💎</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-bold text-secondary mb-4">Aplicativos Internos Crystal S.A.S</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Desarrollo frontend de aplicaciones internas con enfoque en experiencia de usuario y mantenimiento de sistemas legacy.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">React</span>
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">JavaScript</span>
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">CSS3</span>
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">.NET</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="bg-accent text-gray-900 font-bold py-2 px-4 rounded-full text-sm">Proyecto Corporativo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Proyecto 3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
+                        <div class="h-48 bg-gradient-to-br from-warning to-yellow-400 flex items-center justify-center">
+                            <span class="text-6xl">💻</span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-xl font-bold text-secondary mb-4">Portafolio Personal</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Landing page moderna y responsive desarrollada con HTML5, CSS3 y JavaScript vanilla. Optimizada para SEO y performance.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">HTML5</span>
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">CSS3</span>
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">JavaScript</span>
+                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">GitHub Pages</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="https://github.com/dacner/portafolio" class="text-primary font-bold flex items-center gap-2 hover:text-accent transition">
+                                    <span>🐙</span> Código
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contact" class="py-20 bg-secondary text-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative">
+                    Contacto y Referencias
+                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-accent rounded"></div>
+                </h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <!-- Información de contacto -->
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                            <span class="text-2xl">📞</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-accent mb-2">Teléfono</h3>
+                                <p>+57 3242265806</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                            <span class="text-2xl">✉️</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-accent mb-2">Email</h3>
+                                <p>Dacnerpiedrahita@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                            <span class="text-2xl">📍</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-accent mb-2">Ubicación</h3>
+                                <p>Medellín, Colombia</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Referencias -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-accent mb-8">Referencias Profesionales</h3>
+                        <div class="space-y-6">
+                            <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                                <h4 class="text-xl font-bold mb-2">Ana Iondoño</h4>
+                                <p class="text-gray-300 mb-1">Crystal S.A.S</p>
+                                <p>3207178762</p>
+                            </div>
+                            
+                            <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                                <h4 class="text-xl font-bold mb-2">Jenny Hernández</h4>
+                                <p class="text-gray-300 mb-1">Realnet</p>
+                                <p>302 2187951</p>
+                            </div>
+                            
+                            <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                                <h4 class="text-xl font-bold mb-2">Sebastián Orrego</h4>
+                                <p class="text-gray-300 mb-1">Crystal S.A.S</p>
+                                <p>3215717145</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 bg-gray-900 text-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p class="text-center md:text-left">&copy; 2025 Dacner Patiño - Desarrollador de Software</p>
+                    <div class="flex gap-6">
+                        <a href="mailto:Dacnerpiedrahita@gmail.com" class="text-2xl hover:text-accent transition">
+                            ✉️
+                        </a>
+                        <a href="tel:+573242265806" class="text-2xl hover:text-accent transition">
+                            📞
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    
+    </main>
     <script src="js/script.js"></script>
+    
 </body>
 </html>
