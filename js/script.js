@@ -170,7 +170,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-// Función global para el botón HTML
-function downloadCV() {
-    alert("Iniciando descarga del CV...");
-}
