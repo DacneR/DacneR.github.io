@@ -8,29 +8,37 @@
     
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-favicon.png">
 
-
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
     <style type="text/tailwindcss">
-        /* 2. CONFIGURACIÓN DEL TEMA (Sintaxis v4) */
+        /* 2. CONFIGURACIÓN DEL TEMA (CARBON & AMBER) */
         @theme {
-            /* Colores Sólidos */
-            --color-primary: #2563eb;
-            --color-secondary: #1e293b;
-            --color-accent: #06d6a0;
-            --color-warning: #f59e0b;
+            /* Colores Base del Tema Oscuro */
+            --color-primary: #f59e0b;   /* Ámbar (Amber-500) - Color principal */
+            --color-secondary: #0f172a; /* Slate-900 (Fondo Carbón Oscuro) */
+            --color-surface: #1e293b;   /* Slate-800 (Fondo Tarjetas) */
+            --color-text-main: #f1f5f9; /* Slate-100 (Texto claro) */
+            --color-text-muted: #94a3b8; /* Slate-400 (Texto secundario) */
+            
+            /* Bordes sutiles */
+            --color-border: #334155;    /* Slate-700 */
 
-            --background-image-gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --background-image-gradient-accent: linear-gradient(135deg, #06d6a0 0%, #2563eb 100%);
+            /* Gradientes Oscuros */
+            --background-image-gradient-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --background-image-gradient-accent: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
         }
 
         /* 3. ESTILOS MANUALES */
-        
         html {
             scroll-behavior: smooth;
         }
+        
+        body {
+            background-color: var(--color-secondary);
+            color: var(--color-text-main);
+        }
 
-        /* Efecto de subrayado en hover */
+        /* Efecto de subrayado en hover (Color Ámbar) */
         .nav-link-hover {
             position: relative;
         }
@@ -41,13 +49,14 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--background-image-gradient-primary);
+            background: var(--color-primary);
             transition: width 0.3s ease;
         }
         .nav-link-hover:hover::after {
             width: 100%;
         }
 
+        /* Máquina de escribir (Cursor Ámbar) */
         @keyframes typing {
             from { width: 0; }
             to { width: 100%; }
@@ -57,83 +66,71 @@
         }
         .typewriter {
             overflow: hidden;
-            border-right: 3px solid var(--color-accent);
+            border-right: 3px solid var(--color-primary);
             white-space: nowrap;
             animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
         }
     </style>
     
 </head>
-<body class="font-sans text-gray-800 bg-white">
+<body class="font-sans antialiased selection:bg-primary selection:text-secondary">
     
-    <button id="mobileMenuToggle" class="fixed top-4 left-4 z-50 md:hidden bg-white/90 backdrop-blur p-2 rounded-lg shadow-md border border-gray-200 text-gray-700">
-    ☰
+    <button id="mobileMenuToggle" class="fixed top-4 left-4 z-50 md:hidden bg-surface/90 backdrop-blur p-2 rounded-lg shadow-md border border-border text-gray-200">
+        ☰
     </button>
-    <div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden transition-opacity opacity-0"></div>
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/70 z-40 hidden md:hidden transition-opacity opacity-0"></div>
 
-    <nav id="navbar" class="fixed left-0 top-0 h-screen w-64 bg-white/[.98] backdrop-blur-md z-50 border-r border-gray-100 transition-transform duration-300 flex flex-col shadow-xl -translate-x-full md:translate-x-0">
+    <nav id="navbar" class="fixed left-0 top-0 h-screen w-64 bg-surface/98 backdrop-blur-md z-50 border-r border-border transition-transform duration-300 flex flex-col shadow-xl -translate-x-full md:translate-x-0">
         
         <button id="closeMenuBtn" class="absolute top-2 right-2 md:hidden text-gray-400 hover:text-red-500 p-2 text-xl">✕</button>
 
-        <div class="p-4 border-b border-gray-100 shrink-0 flex flex-col items-center">
+        <div class="p-4 border-b border-border shrink-0 flex flex-col items-center">
             <a href="#home" class="block hover:scale-105 transition-transform duration-300">
                 <img src="/assets/Avatar-cartoon.jpg" alt="DP" 
-                    class="h-24 w-20 md:h-32 md:w-24 rounded-full border-[3px] border-primary hover:border-accent transition-all duration-300 object-cover shadow-md">
+                    class="h-24 w-20 md:h-32 md:w-24 rounded-full border-[3px] border-primary hover:border-white transition-all duration-300 object-cover shadow-lg shadow-primary/10">
             </a>
-            <p class="mt-2 text-sm font-bold text-gray-800">Dacner Patiño</p>
-            <p class="text-[10px] text-primary font-medium tracking-wide bg-primary/10 px-2 py-0.5 rounded-full mt-1">Full-Stack Dev</p>
+            <p class="mt-2 text-sm font-bold text-gray-200">Dacner Patiño</p>
+            <p class="text-[10px] text-primary font-medium tracking-wide bg-primary/10 px-2 py-0.5 rounded-full mt-1 border border-primary/20">Full-Stack Dev</p>
         </div>
 
         <div class="flex-1 px-3 py-2 overflow-y-auto">
             <div class="flex flex-col gap-1"> 
-                <a href="#home" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                <a href="#home" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-slate-700/50 text-gray-400 hover:text-primary transition-all duration-200 group">
                     <span class="font-medium text-sm">Inicio</span>
                 </a>
-                <a href="#experience" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                <a href="#experience" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-slate-700/50 text-gray-400 hover:text-primary transition-all duration-200 group">
                     <span class="font-medium text-sm">Experiencia</span>
                 </a>
-                <a href="#skills" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                <a href="#skills" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-slate-700/50 text-gray-400 hover:text-primary transition-all duration-200 group">
                     <span class="font-medium text-sm">Habilidades</span>
                 </a>
-                <a href="#projects" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                <a href="#projects" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-slate-700/50 text-gray-400 hover:text-primary transition-all duration-200 group">
                     <span class="font-medium text-sm">Proyectos</span>
                 </a>
-                <a href="#contact" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                <a href="#contact" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-slate-700/50 text-gray-400 hover:text-primary transition-all duration-200 group">
                     <span class="font-medium text-sm">Contacto</span>
                 </a>
             </div>
         </div>
 
-        <div class="p-3 border-t border-gray-100 mt-auto shrink-0">
+        <div class="p-3 border-t border-border mt-auto shrink-0">
             <div class="flex justify-center gap-5 mb-2">
-                
-                <a href="mailto:Dacnerpiedrahita@gmail.com" class="text-gray-400 hover:text-primary transition-colors duration-200" title="Enviar Correo">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
+                <a href="mailto:Dacnerpiedrahita@gmail.com" class="text-gray-500 hover:text-primary transition-colors duration-200" title="Enviar Correo">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </a>
-
-                <a href="tel:+573242265806" class="text-gray-400 hover:text-primary transition-colors duration-200" title="Llamar">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.43-5.15-3.75-6.58-6.59l1.97-1.57c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.28 3 3.93 3 4.74c0 9.27 7.53 16.8 16.8 16.8.81 0 1.46-.65 1.46-1.19v-3.99c0-.54-.45-.99-.99-.99z"/>
-                    </svg>
+                <a href="tel:+573242265806" class="text-gray-500 hover:text-primary transition-colors duration-200" title="Llamar">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.43-5.15-3.75-6.58-6.59l1.97-1.57c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.28 3 3.93 3 4.74c0 9.27 7.53 16.8 16.8 16.8.81 0 1.46-.65 1.46-1.19v-3.99c0-.54-.45-.99-.99-.99z"/></svg>
                 </a>
-
-                <a href="https://wa.me/573242265806?text=Hola%20Dacner,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte." 
-                   target="_blank" 
-                   class="text-gray-400 hover:text-[#25D366] transition-colors duration-200" 
-                   title="WhatsApp">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                    </svg>
+                <a href="https://wa.me/573242265806?text=Hola%20Dacner,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte." target="_blank" class="text-gray-500 hover:text-[#25D366] transition-colors duration-200" title="WhatsApp">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                 </a>
             </div>
-            <p class="text-[10px] text-gray-400 text-center uppercase tracking-widest">&copy; 2026</p>
+            <p class="text-[10px] text-gray-600 text-center uppercase tracking-widest">&copy; 2026</p>
         </div>
     </nav>
 
-
     <main class="w-full md:pl-64 min-h-screen transition-all duration-300">
+        
         <section id="home" class="relative overflow-hidden min-h-screen bg-gradient-primary text-white pt-20 md:pt-24 flex flex-col justify-center">
     
             <div id="particles-js" class="absolute inset-0 z-0 pointer-events-none"></div>
@@ -142,61 +139,58 @@
                 <div class="flex flex-col md:flex-row items-center justify-between gap-12">
                     <div class="order-1 md:order-2 text-center md:text-left max-w-2xl">
                         <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                            <span class="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">Dacner Patiño</span>
+                            <span class="text-white">Dacner Patiño</span>
                         </h1>
                         
                         <div class="h-16 mb-6">
-                            <p class="text-2xl md:text-3xl font-semibold text-accent typewriter">
+                            <p class="text-2xl md:text-3xl font-semibold text-primary typewriter">
                                 Desarrollador Full-Stack
                             </p>
                         </div>
                         
-                        <p class="text-lg md:text-xl mb-10 leading-relaxed opacity-90">
-                            Especializado en <strong>.NET</strong>, <strong>Odoo</strong> y soluciones backend. 
+                        <p class="text-lg md:text-xl mb-10 leading-relaxed text-gray-400">
+                            Especializado en <strong class="text-white">.NET</strong>, <strong class="text-white">Odoo</strong> y soluciones backend. 
                             Apasionado por la resolución de problemas complejos y el código limpio.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                            <a href="#contact" class="bg-accent text-gray-900 font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center">
+                            <a href="#contact" class="bg-primary text-secondary font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 text-center">
                                 Contactar Ahora
                             </a>
-                            <a href="#projects" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-xl hover:bg-white hover:text-gray-900 transition-all duration-300 text-center">
+                            <a href="#projects" class="bg-transparent border-2 border-slate-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-white hover:text-secondary transition-all duration-300 text-center">
                                 Ver Proyectos
                             </a>
-                            <!-- <button onclick="downloadCV()" class="bg-warning text-gray-900 font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center flex items-center justify-center gap-2">
-                                <span>📥</span> Descargar CV
-                            </button> -->
-                            <a href="assets/cv.pdf" download class="bg-warning text-gray-900 font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <a href="assets/cv.pdf" download class="bg-surface text-white border border-slate-700 font-bold py-3 px-8 rounded-xl shadow-lg hover:border-primary transition-all duration-300 text-center flex items-center justify-center gap-2">
                                 <span>📥</span> Descargar CV
                             </a>
                         </div>
                         
                         <div class="flex flex-wrap justify-center md:justify-start gap-8 md:gap-12">
                             <div class="text-center">
-                                <div class="text-3xl md:text-4xl font-bold text-accent">2+</div>
-                                <div class="opacity-80">Años Experiencia</div>
+                                <div class="text-3xl md:text-4xl font-bold text-primary">2+</div>
+                                <div class="opacity-80 text-gray-400">Años Experiencia</div>
                             </div>
                             <div class="text-center">
-                                <div class="text-3xl md:text-4xl font-bold text-accent">10+</div>
-                                <div class="opacity-80">Proyectos Completados</div>
+                                <div class="text-3xl md:text-4xl font-bold text-primary">10+</div>
+                                <div class="opacity-80 text-gray-400">Proyectos Completados</div>
                             </div>
                             <div class="text-center">
-                                <div class="text-3xl md:text-4xl font-bold text-accent">5+</div>
-                                <div class="opacity-80">Tecnologías Dominadas</div>
+                                <div class="text-3xl md:text-4xl font-bold text-primary">5+</div>
+                                <div class="opacity-80 text-gray-400">Tecnologías Dominadas</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="container mx-auto px-4 md:px-8 py-20 bg-white relative z-10 w-full max-w-full">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
+            <div class="container mx-auto px-4 md:px-8 py-20 bg-surface border-t border-border relative z-10 w-full max-w-full">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white relative">
                     Sobre Mí
-                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></div>
                 </h2>
                 
                 <div class="max-w-4xl mx-auto">
-                    <p class="text-lg md:text-xl text-gray-600 text-center mb-12 leading-relaxed">
+                    <p class="text-lg md:text-xl text-gray-400 text-center mb-12 leading-relaxed">
                         Profesional motivado con pasión por la tecnología y el desarrollo digital, 
                         con competencias en desarrollo backend, bases de datos y programación. 
                         Me destaco por mi capacidad de adaptación, trabajo bajo presión y 
@@ -204,27 +198,27 @@
                     </p>
                     
                     <div class="space-y-6">
-                        <div class="flex items-start gap-6 p-6 bg-gray-50 rounded-xl border-l-4 border-primary">
+                        <div class="flex items-start gap-6 p-6 bg-secondary/50 rounded-xl border border-border hover:border-primary/50 transition-colors">
                             <span class="text-2xl">🎓</span>
                             <div>
-                                <strong class="text-lg text-gray-600">Tecnólogo en Desarrollo de Software</strong>
-                                <p class="text-gray-600">Institución Universitaria Pascual Bravo · 2022-2025</p>
+                                <strong class="text-lg text-white">Tecnólogo en Desarrollo de Software</strong>
+                                <p class="text-gray-500">Institución Universitaria Pascual Bravo · 2022-2025</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start gap-6 p-6 bg-gray-50 rounded-xl border-l-4 border-primary">
+                        <div class="flex items-start gap-6 p-6 bg-secondary/50 rounded-xl border border-border hover:border-primary/50 transition-colors">
                             <span class="text-2xl">🎓</span>
                             <div>
-                                <strong class="text-lg text-gray-600">Técnico en Desarrollo de Software</strong>
-                                <p class="text-gray-600">Institución Educativa Dinamarca · 2020-2021</p>
+                                <strong class="text-lg text-white">Técnico en Desarrollo de Software</strong>
+                                <p class="text-gray-500">Institución Educativa Dinamarca · 2020-2021</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start gap-6 p-6 bg-gray-50  rounded-xl border-l-4 border-primary">
+                        <div class="flex items-start gap-6 p-6 bg-secondary/50 rounded-xl border border-border hover:border-primary/50 transition-colors">
                             <span class="text-2xl">📍</span>
                             <div>
-                                <strong class="text-lg text-gray-600">Ubicación</strong>
-                                <p class="text-gray-600">Medellín, Colombia</p>
+                                <strong class="text-lg text-white">Ubicación</strong>
+                                <p class="text-gray-500">Medellín, Colombia</p>
                             </div>
                         </div>
                     </div>
@@ -232,34 +226,32 @@
             </div>
         </section>
 
-        <section id="experience" class="py-20 bg-gray-50">
+        <section id="experience" class="py-20 bg-secondary">
             <div class="container mx-auto px-4 md:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white relative">
                     Experiencia Laboral
-                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></div>
                 </h2>
                 
                 <div class="max-w-4xl mx-auto relative">
-                    <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-primary hidden md:block"></div>
+                    <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-primary/30 hidden md:block"></div>
                     
                     <div class="flex flex-col md:flex-row mb-12 relative">
                         <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
                             <div class="font-bold text-primary">Oct 2025 – Nov 2025</div>
                         </div>
                         <div class="md:w-1/2 md:pl-12">
-                            <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-accent">
-                                <h3 class="text-xl font-bold text-secondary mb-2">Programador Odoo</h3>
+                            <div class="bg-surface p-8 rounded-xl shadow-lg border border-border border-l-4 border-l-primary">
+                                <h3 class="text-xl font-bold text-white mb-2">Programador Odoo</h3>
                                 <h4 class="text-lg text-primary mb-4">REALNET</h4>
-                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                <p class="text-gray-400 mb-6 leading-relaxed">
                                     Desarrollo de funcionalidades y mantenimiento de aplicativos internos de la compañía, 
-                                    con énfasis en la personalización y programación sobre <strong>Odoo 18 y 18.2 (Enterprise y Community)</strong>. 
-                                    Encargado de resolver problemas lógicos en sistemas complejos.
+                                    con énfasis en la personalización y programación sobre <strong>Odoo 18</strong>.
                                 </p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">Odoo 18</span>
-                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">Python</span>
-                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">PostgreSQL</span>
-                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
+                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">Odoo 18</span>
+                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">Python</span>
+                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">PostgreSQL</span>
                                 </div>
                             </div>
                         </div>
@@ -270,18 +262,17 @@
                             <div class="font-bold text-primary">Feb 2025 – Ago 2025</div>
                         </div>
                         <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
-                            <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-accent">
-                                <h3 class="text-xl font-bold text-secondary mb-2">Desarrollador Frontend</h3>
-                                <h4 class="text-lg text-primary mb-4">CRYSTAL S.A.S</h4>
-                                <p class="text-gray-600 mb-6 leading-relaxed">
+                            <div class="bg-surface p-8 rounded-xl shadow-lg border border-border border-l-4 border-l-accent">
+                                <h3 class="text-xl font-bold text-white mb-2">Desarrollador Frontend</h3>
+                                <h4 class="text-lg text-accent mb-4">CRYSTAL S.A.S</h4>
+                                <p class="text-gray-400 mb-6 leading-relaxed">
                                     Desarrollo enfocado a aplicativos internos de la empresa y resolución de problemas lógicos 
-                                    para sistemas complejos, guardando la armonía del front y respetando su tableta de colores.
+                                    para sistemas complejos.
                                 </p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">React</span>
-                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
-                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">CSS3</span>
-                                    <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm font-medium">UI/UX</span>
+                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">React</span>
+                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">JavaScript</span>
+                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">CSS3</span>
                                 </div>
                             </div>
                         </div>
@@ -290,167 +281,123 @@
             </div>
         </section>
 
-        <section id="skills" class="py-20 bg-white">
+        <section id="skills" class="py-20 bg-surface border-t border-border">
             <div class="container mx-auto px-4 md:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white relative">
                     Habilidades Técnicas
-                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></div>
                 </h2>
                 
                 <div class="max-w-4xl mx-auto">
                     <div class="flex justify-center mb-8">
-                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-secondary mb-3">Resolución de Problemas</h4>
-                            <p class="text-gray-600">Análisis y solución de problemas lógicos complejos</p>
+                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-accent w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-white mb-3">Resolución de Problemas</h4>
+                            <p class="text-gray-400">Análisis y solución de problemas lógicos complejos</p>
                         </div>
                     </div>
                     
                     <div class="flex flex-col md:flex-row justify-center gap-8 mb-8">
-                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-primary w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-secondary mb-3">Backend</h4>
-                            <p class="text-gray-600">.NET, Node.js, APIs REST</p>
+                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-primary w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-white mb-3">Backend</h4>
+                            <p class="text-gray-400">.NET, Node.js, APIs REST</p>
                         </div>
-                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-warning w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-secondary mb-3">Frontend</h4>
-                            <p class="text-gray-600">React, HTML5, CSS3, JavaScript</p>
+                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-warning w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-white mb-3">Frontend</h4>
+                            <p class="text-gray-400">React, HTML5, CSS3, JavaScript</p>
                         </div>
                     </div>
                     
                     <div class="flex flex-col md:flex-row justify-center gap-8">
-                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-purple-500 w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-secondary mb-3">Bases de Datos</h4>
-                            <p class="text-gray-600">MySQL, MongoDB, PostgreSQL</p>
+                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-purple-500 w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-white mb-3">Bases de Datos</h4>
+                            <p class="text-gray-400">MySQL, MongoDB, PostgreSQL</p>
                         </div>
-                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-warning w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-secondary mb-3">Odoo</h4>
-                            <p class="text-gray-600">Enterprise & Community</p>
+                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-warning w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-white mb-3">Odoo</h4>
+                            <p class="text-gray-400">Enterprise & Community</p>
                         </div>
-                        <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-accent w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-secondary mb-3">Tools</h4>
-                            <p class="text-gray-600">Git, Linux, Docker</p>
+                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-accent w-full max-w-xs text-center">
+                            <h4 class="text-xl font-bold text-white mb-3">Tools</h4>
+                            <p class="text-gray-400">Git, Linux, Docker</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="py-20 bg-gray-50">
+        <section id="projects" class="py-20 bg-secondary">
             <div class="container mx-auto px-4 md:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-secondary relative">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white relative">
                     Proyectos Destacados
-                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-gradient-primary rounded"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></div>
                 </h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="tilt-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 flex flex-col h-full">
-    
-                        <div class="h-48 bg-gray-100 relative group overflow-hidden border-b border-gray-100">
+                    <div class="tilt-card bg-surface rounded-xl overflow-hidden shadow-lg border border-border hover:border-primary/50 transition-all flex flex-col h-full">
+                        <div class="h-48 bg-slate-900 relative group overflow-hidden border-b border-border">
                             <img src="assets/projects/Rcafe-project.png" alt="Relatos Café Website" 
-                                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
-                            
-                            <div class="absolute top-3 right-3 bg-green-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">
-                                ONLINE 🟢
-                            </div>
+                                class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105">
+                            <div class="absolute top-3 right-3 bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1 rounded shadow-sm">ONLINE 🟢</div>
                         </div>
 
                         <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-secondary mb-3">Relatos Café</h3>
-                            
-                            <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-1">
-                                Plataforma e-commerce diseñada para una tienda de café de especialidad. 
-                                Incluye catálogo de productos, integración de pasarela de pagos, blog de noticias y sección de promociones. 
-                                <strong>Desarrollo 100% nativo</strong> enfocado en SEO y rendimiento.
+                            <h3 class="text-xl font-bold text-white mb-3">Relatos Café</h3>
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed flex-1">
+                                Plataforma e-commerce diseñada para una tienda de café de especialidad.
                             </p>
-
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs font-medium rounded-full">HTML5</span>
-                                <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">CSS3</span>
-                                <span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs font-medium rounded-full">JavaScript</span>
-                                <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full">Responsive</span>
+                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">HTML5</span>
+                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">CSS3</span>
+                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">JS</span>
                             </div>
-
-                            <div class="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
-                                <a href="https://github.com/DacneR/Relatos-Caf-" target="_blank" 
-                                class="flex items-center gap-2 text-sm font-bold text-gray-600 hover:text-primary transition-colors group/link">
-                                    <span class="text-xl group-hover/link:scale-110 transition-transform">🐙</span> Código
-                                </a>
-
-                                <a href="https://relatoscafe.com.co" target="_blank" 
-                                class="flex items-center gap-2 text-sm font-bold text-accent hover:text-green-600 transition-colors group/link">
-                                    <span class="text-xl group-hover/link:scale-110 transition-transform">🌍</span> Ver Sitio
-                                </a>
+                            <div class="flex items-center justify-between pt-4 border-t border-border mt-auto">
+                                <a href="https://github.com/DacneR/Relatos-Caf-" target="_blank" class="flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-colors"><span class="text-xl">🐙</span> Código</a>
+                                <a href="https://relatoscafe.com.co" target="_blank" class="flex items-center gap-2 text-sm font-bold text-primary hover:text-amber-300 transition-colors"><span class="text-xl">🌍</span> Ver Sitio</a>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="tilt-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 flex flex-col h-full">
-    
-                        <div class="h-48 bg-gray-900 relative group overflow-hidden border-b border-gray-100">
+                    <div class="tilt-card bg-surface rounded-xl overflow-hidden shadow-lg border border-border hover:border-accent/50 transition-all flex flex-col h-full">
+                        <div class="h-48 bg-slate-900 relative group overflow-hidden border-b border-border">
                             <img src="assets/projects/Crudo-project.png" alt="Crudo Skate Shop" 
-                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100">
-                            
-                            <div class="absolute top-3 right-3 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm border border-gray-600">
-                                FULL STACK 🛠️
-                            </div>
+                                class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105">
+                            <div class="absolute top-3 right-3 bg-gray-700/50 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm border border-gray-600">FULL STACK 🛠️</div>
                         </div>
 
                         <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-secondary mb-3">Crudo Skate Shop</h3>
-                            
-                            <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-1">
-                                E-commerce de moda urbana con diseño "street" original. 
-                                Arquitectura robusta separando el frontend en <strong>React</strong> y un backend potente en <strong>C# (.NET)</strong> con persistencia de datos en <strong>MySQL</strong>.
+                            <h3 class="text-xl font-bold text-white mb-3">Crudo Skate Shop</h3>
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed flex-1">
+                                E-commerce de moda urbana con diseño "street". Frontend React y Backend .NET.
                             </p>
-
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2 py-1 bg-cyan-100 text-cyan-700 text-xs font-medium rounded-full">React</span>
-                                <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full">C# .NET</span>
-                                <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs font-medium rounded-full">MySQL</span>
-                                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">Responsive</span>
+                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">React</span>
+                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">.NET</span>
+                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">MySQL</span>
                             </div>
-
-                            <div class="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
-                                <a href="https://github.com/DacneR/client" target="_blank" 
-                                class="flex items-center gap-2 text-sm font-bold text-gray-700 hover:text-primary transition-colors group/link w-full justify-center">
-                                    <span class="text-xl group-hover/link:scale-110 transition-transform">🐙</span> Ver Código Fuente
-                                </a>
-                                
-                                </div>
+                            <div class="flex items-center justify-between pt-4 border-t border-border mt-auto">
+                                <a href="https://github.com/DacneR/client" target="_blank" class="flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-colors w-full justify-center"><span class="text-xl">🐙</span> Ver Código Fuente</a>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="tilt-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 flex flex-col h-full">
-    
-                        <div class="h-48 bg-gradient-to-br from-indigo-900 to-purple-800 relative group overflow-hidden border-b border-gray-100 flex items-center justify-center">
-                            <img src="assets/projects/Funnel-project.png" alt="Crudo Skate Shop" 
-                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100">
-                            
-                            <div class="absolute top-3 right-3 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">
-                                AI POWERED 🧠
-                            </div>
+                    <div class="tilt-card bg-surface rounded-xl overflow-hidden shadow-lg border border-border hover:border-purple-500/50 transition-all flex flex-col h-full">
+                        <div class="h-48 bg-gradient-to-br from-indigo-900 to-purple-900 relative group overflow-hidden border-b border-border flex items-center justify-center">
+                            <img src="assets/projects/Funnel-project.png" alt="Funnelhot" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105">
+                            <div class="absolute top-3 right-3 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">AI POWERED 🧠</div>
                         </div>
 
                         <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-secondary mb-3">Funnelhot Assistants</h3>
-                            
-                            <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-1">
-                                Plataforma de Inteligencia Artificial para crear y entrenar agentes personalizados. 
-                                Permite configurar el comportamiento (Prompt Engineering) para respuestas cordiales y elegantes. 
-                                Desarrollado con <strong>Next.js</strong> para máximo rendimiento y SSR.
+                            <h3 class="text-xl font-bold text-white mb-3">Funnelhot Assistants</h3>
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed flex-1">
+                                Plataforma AI para crear agentes personalizados. Prompt Engineering + Next.js.
                             </p>
-
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2 py-1 bg-black text-white text-xs font-medium rounded-full">Next.js</span>
-                                <span class="px-2 py-1 bg-cyan-100 text-cyan-700 text-xs font-medium rounded-full">React</span>
-                                <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">Node.js</span>
-                                <span class="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">OpenAI API</span>
+                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">Next.js</span>
+                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">React</span>
+                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">OpenAI</span>
                             </div>
-
-                            <div class="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
-                                <a href="https://github.com/DacneR/funnelhot-assistants.git" target="_blank" 
-                                class="flex items-center gap-2 text-sm font-bold text-gray-700 hover:text-indigo-600 transition-colors group/link w-full justify-center">
-                                    <span class="text-xl group-hover/link:scale-110 transition-transform">🐙</span> Ver Código Fuente
-                                </a>
+                            <div class="flex items-center justify-between pt-4 border-t border-border mt-auto">
+                                <a href="https://github.com/DacneR/funnelhot-assistants.git" target="_blank" class="flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-colors w-full justify-center"><span class="text-xl">🐙</span> Ver Código Fuente</a>
                             </div>
                         </div>
                     </div>
@@ -458,71 +405,58 @@
             </div>
         </section>
 
-        <section id="contact" class="py-20 bg-secondary text-white">
+        <section id="contact" class="py-20 bg-surface text-white border-t border-border">
             <div class="container mx-auto px-4 md:px-8">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative">
                     Contacto y Referencias
-                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-accent rounded"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></div>
                 </h2>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                    <div class="space-y-4 md:space-y-6">
-                        <div class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                        <div class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-colors">
                             <span class="text-xl md:text-2xl">📞</span>
                             <div>
-                            <h3 class="text-lg md:text-xl font-bold text-accent mb-1 md:mb-2">
-                                Teléfono
-                            </h3>
-                            <p class="text-sm md:text-base">
-                                +57 3242265806
-                            </p>
+                                <h3 class="text-lg md:text-xl font-bold text-primary mb-1 md:mb-2">Teléfono</h3>
+                                <p class="text-sm md:text-base">+57 3242265806</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                        <div class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-colors">
                             <span class="text-xl md:text-2xl">✉️</span>
                             <div>
-                            <h3 class="text-lg md:text-xl font-bold text-accent mb-1 md:mb-2">
-                                Email
-                            </h3>
-                            <p class="text-sm md:text-base break-all">
-                                Dacnerpiedrahita@gmail.com
-                            </p>
+                                <h3 class="text-lg md:text-xl font-bold text-primary mb-1 md:mb-2">Email</h3>
+                                <p class="text-sm md:text-base break-all">Dacnerpiedrahita@gmail.com</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                        <div class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-colors">
                             <span class="text-xl md:text-2xl">📍</span>
                             <div>
-                            <h3 class="text-lg md:text-xl font-bold text-accent mb-1 md:mb-2">
-                                Ubicación
-                            </h3>
-                            <p class="text-sm md:text-base">
-                                Medellín, Colombia
-                            </p>
+                                <h3 class="text-lg md:text-xl font-bold text-primary mb-1 md:mb-2">Ubicación</h3>
+                                <p class="text-sm md:text-base">Medellín, Colombia</p>
                             </div>
                         </div>
                     </div>
 
-                    
                     <div>
-                        <h3 class="text-2xl font-bold text-accent mb-8">Referencias Profesionales</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-8">Referencias Profesionales</h3>
                         <div class="space-y-6">
-                            <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                                <h4 class="text-xl font-bold mb-2">Ana Iondoño</h4>
-                                <p class="text-gray-300 mb-1">Crystal S.A.S</p>
+                            <div class="p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border">
+                                <h4 class="text-xl font-bold mb-2">Ana Londoño</h4>
+                                <p class="text-gray-400 mb-1">Crystal S.A.S</p>
                                 <p>3207178762</p>
                             </div>
                             
-                            <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                            <div class="p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border">
                                 <h4 class="text-xl font-bold mb-2">Jenny Hernández</h4>
-                                <p class="text-gray-300 mb-1">Realnet</p>
+                                <p class="text-gray-400 mb-1">Realnet</p>
                                 <p>302 2187951</p>
                             </div>
                             
-                            <div class="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                            <div class="p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border">
                                 <h4 class="text-xl font-bold mb-2">Sebastián Orrego</h4>
-                                <p class="text-gray-300 mb-1">Crystal S.A.S</p>
+                                <p class="text-gray-400 mb-1">Crystal S.A.S</p>
                                 <p>3215717145</p>
                             </div>
                         </div>
@@ -531,45 +465,27 @@
             </div>
         </section>
 
-        <footer class="py-12 bg-gray-900 text-white border-t border-white/10">
+        <footer class="py-12 bg-secondary text-white border-t border-border">
             <div class="container mx-auto px-4 md:px-8">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                    
-                    <p class="text-center md:text-left text-gray-400 text-sm">
+                    <p class="text-center md:text-left text-gray-500 text-sm">
                         &copy; 2025 Dacner Patiño - Desarrollador de Software
                     </p>
-                    
                     <div class="flex items-center gap-6">
-                        <a href="mailto:Dacnerpiedrahita@gmail.com" 
-                        class="text-gray-400 hover:text-accent transition-colors duration-300 transform hover:scale-110" 
-                        title="Enviar Correo">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
+                        <a href="mailto:Dacnerpiedrahita@gmail.com" class="text-gray-500 hover:text-primary transition-colors duration-300 transform hover:scale-110" title="Enviar Correo">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                         </a>
-
-                        <a href="tel:+573242265806" 
-                        class="text-gray-400 hover:text-accent transition-colors duration-300 transform hover:scale-110" 
-                        title="Llamar">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.43-5.15-3.75-6.58-6.59l1.97-1.57c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.28 3 3.93 3 4.74c0 9.27 7.53 16.8 16.8 16.8.81 0 1.46-.65 1.46-1.19v-3.99c0-.54-.45-.99-.99-.99z"/>
-                            </svg>
+                        <a href="tel:+573242265806" class="text-gray-500 hover:text-primary transition-colors duration-300 transform hover:scale-110" title="Llamar">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.43-5.15-3.75-6.58-6.59l1.97-1.57c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.28 3 3.93 3 4.74c0 9.27 7.53 16.8 16.8 16.8.81 0 1.46-.65 1.46-1.19v-3.99c0-.54-.45-.99-.99-.99z"/></svg>
                         </a>
-
-                        <a href="https://wa.me/573242265806?text=Hola%20Dacner,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte." 
-                        target="_blank"
-                        class="text-gray-400 hover:text-[#25D366] transition-colors duration-300 transform hover:scale-110" 
-                        title="WhatsApp">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                            </svg>
+                        <a href="https://wa.me/573242265806?text=Hola%20Dacner,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte." target="_blank" class="text-gray-500 hover:text-[#25D366] transition-colors duration-300 transform hover:scale-110" title="WhatsApp">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                         </a>
                     </div>
                 </div>
             </div>
         </footer>
 
-    
     </main>
     <script src="js/script.js"></script>
     

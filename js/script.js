@@ -1,74 +1,72 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // ======================================================
-    // 1. EFECTO DE PARTÍCULAS (SOLUCIÓN DEFINITIVA)
+    // 1. EFECTO DE PARTÍCULAS (OPTIMIZADO MODO OSCURO)
     // ======================================================
     function initParticles() {
         const container = document.getElementById('particles-js');
-        
-        // Si no existe el contenedor, no hacemos nada (evita errores)
-        if (!container) {
-            console.error("No encontré el div 'particles-js'. Revisa el HTML.");
-            return;
-        }
+        if (!container) return; 
 
-        // Limpiamos por si acaso
         container.innerHTML = '';
 
-        // Creamos 25 partículas
-        for (let i = 0; i < 25; i++) {
+        for (let i = 0; i < 30; i++) {
             const particle = document.createElement('div');
-            
-            // Aleatoriedad
-            const size = Math.random() * 6 + 2; // Entre 2px y 8px
+            const size = Math.random() * 4 + 2; 
             const posX = Math.random() * 100;
             const posY = Math.random() * 100;
-            const duration = Math.random() * 15 + 10; // Entre 10s y 25s
-            const opacity = Math.random() * 0.5 + 0.1;
+            const duration = Math.random() * 20 + 10; 
+            const opacity = Math.random() * 0.4 + 0.1; 
 
-            // Estilos IN-LINE para asegurar que se vean
-            particle.style.position = 'absolute';
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.background = 'white'; // Blanco puro
-            particle.style.borderRadius = '50%';
-            particle.style.left = `${posX}%`;
-            particle.style.top = `${posY}%`;
-            particle.style.opacity = opacity;
-            particle.style.pointerEvents = 'none';
-            // Animación CSS inyectada
-            particle.style.animation = `floatingParticles ${duration}s infinite linear`;
-            
+            particle.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                background-color: white; 
+                border-radius: 50%;
+                left: ${posX}%;
+                top: ${posY}%;
+                opacity: ${opacity};
+                pointer-events: none;
+                animation: floatingParticles ${duration}s infinite linear;
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            `;
             container.appendChild(particle);
         }
 
-        // Inyectamos la Keyframe Animation en el documento
-        const styleSheet = document.createElement("style");
-        styleSheet.innerText = `
-            @keyframes floatingParticles {
-                0% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
-                50% { opacity: 0.5; }
-                100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(styleSheet);
+        if (!document.getElementById('particle-anim-style')) {
+            const styleSheet = document.createElement("style");
+            styleSheet.id = 'particle-anim-style';
+            styleSheet.innerText = `
+                @keyframes floatingParticles {
+                    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+                    20% { opacity: 0.5; }
+                    80% { opacity: 0.5; }
+                    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(styleSheet);
+        }
     }
-    
-    // Ejecutamos partículas
     initParticles();
 
 
     // ======================================================
-    // 2. EFECTO TILT 3D (TARJETAS QUE SE MUEVEN)
+    // 2. EFECTO TILT 3D (SOLO TARJETAS PEQUEÑAS)
     // ======================================================
-    // Seleccionamos automáticamente tus tarjetas de "Sobre mí" y "Proyectos"
-    // Buscamos los divs que tienen fondo blanco (bg-white) o gris (bg-gray-50) y bordes redondeados
-    const cards = document.querySelectorAll('.bg-white.rounded-xl, .bg-gray-50.rounded-xl');
+    
+    // AQUÍ ESTABA EL ERROR: Antes seleccionábamos todo '.bg-surface'.
+    // AHORA: Seleccionamos solo las tarjetas específicas dentro de cada sección.
+    const cards = document.querySelectorAll(
+        '.tilt-card, ' +                // Proyectos
+        '#experience .bg-surface, ' +   // Tarjetas de Experiencia (Solo las de adentro)
+        '#skills .bg-secondary, ' +     // Tarjetas de Habilidades
+        '.bg-secondary\\/50'            // Tarjetas de Contacto y Sobre Mí (Las pequeñas)
+    );
 
-    if (window.matchMedia("(hover: hover)").matches) { // Solo en PC con mouse
+    if (window.matchMedia("(hover: hover)").matches) { 
         cards.forEach(card => {
-            // Configuración inicial de transición
-            card.style.transition = 'transform 0.1s ease, box-shadow 0.3s ease';
+            // Transición suave
+            card.style.transition = 'transform 0.2s ease-out, box-shadow 0.3s ease, border-color 0.3s ease';
             card.style.transformStyle = 'preserve-3d';
 
             card.addEventListener('mousemove', (e) => {
@@ -79,29 +77,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
                 
-                // Cálculo del ángulo (Divisor más alto = movimiento más sutil)
-                const rotateX = ((y - centerY) / 25) * -1;
-                const rotateY = (x - centerX) / 25;
+                // Divisor en 80 para que el movimiento sea sutil y no maree
+                const rotateX = ((y - centerY) / 80) * -1;
+                const rotateY = (x - centerX) / 80;
 
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-                card.style.zIndex = '20'; // Traer al frente
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+                card.style.zIndex = '20'; 
+                card.style.borderColor = 'rgba(245, 158, 11, 0.4)'; // Borde ámbar suave
             });
 
             card.addEventListener('mouseleave', () => {
-                card.style.transition = 'transform 0.5s ease'; // Salida suave
+                card.style.transition = 'transform 0.6s ease, border-color 0.5s ease'; 
                 card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
                 card.style.zIndex = '1';
+                card.style.borderColor = ''; 
             });
         });
     }
 
 
     // ======================================================
-    // 3. MÁQUINA DE ESCRIBIR (TYPEWRITER)
+    // 3. MÁQUINA DE ESCRIBIR
     // ======================================================
     const typeElement = document.querySelector('.typewriter');
     if (typeElement) {
-        const words = ["Desarrollador Full-Stack", "Experto en Odoo", "Backend .NET", "Frontend React"];
+        const words = ["Desarrollador Full-Stack", "Backend .NET", "Experto en Odoo", "Frontend React"];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let typeSpeed = isDeleting ? 50 : 100;
 
             if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 2000; // Pausa al terminar palabra
+                typeSpeed = 2000; 
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // ======================================================
-    // 4. LÓGICA DEL MENÚ (HAMBURGUESA)
+    // 4. MENU HAMBURGUESA
     // ======================================================
     const menuBtn = document.getElementById('mobileMenuToggle');
     const closeBtn = document.getElementById('closeMenuBtn');
@@ -169,4 +169,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
-
