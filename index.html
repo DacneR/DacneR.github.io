@@ -83,19 +83,19 @@
 
         <div class="flex-1 px-3 py-2 overflow-y-auto">
             <div class="flex flex-col gap-1"> 
-                <a href="#home" class="nav-link flex items-center gap-1 px-3 py-.5 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                <a href="#home" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
                     <span class="font-medium text-sm">Inicio</span>
                 </a>
-                <a href="#experience" class="nav-link flex items-center gap-1 px-3 py-.5 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                <a href="#experience" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
                     <span class="font-medium text-sm">Experiencia</span>
                 </a>
-                <a href="#skills" class="nav-link flex items-center gap-1 px-3 py-.5 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                <a href="#skills" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
                     <span class="font-medium text-sm">Habilidades</span>
                 </a>
-                <a href="#projects" class="nav-link flex items-center gap-1 px-3 py-.5 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                <a href="#projects" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
                     <span class="font-medium text-sm">Proyectos</span>
                 </a>
-                <a href="#contact" class="nav-link flex items-center gap-1 px-3 py-.5 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
+                <a href="#contact" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-primary/5 text-gray-600 hover:text-primary transition-all duration-200 group">
                     <span class="font-medium text-sm">Contacto</span>
                 </a>
             </div>
@@ -317,66 +317,114 @@
                 </h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
-                        <div class="h-48 bg-gradient-primary flex items-center justify-center">
-                            <span class="text-6xl">🚀</span>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-xl font-bold text-secondary mb-4">Sistema de Gestión Odoo</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Desarrollo y personalización de módulos Odoo 18 para gestión empresarial, incluyendo customizaciones específicas para procesos internos.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">Odoo 18</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">Python</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">PostgreSQL</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">XML</span>
+                    <div class="tilt-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 flex flex-col h-full">
+    
+                        <div class="h-48 bg-gray-100 relative group overflow-hidden border-b border-gray-100">
+                            <img src="assets/projects/Rcafe-project.png" alt="Relatos Café Website" 
+                                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                            
+                            <div class="absolute top-3 right-3 bg-green-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">
+                                ONLINE 🟢
                             </div>
-                            <div class="flex justify-between items-center">
-                                <span class="bg-accent text-gray-900 font-bold py-2 px-4 rounded-full text-sm">Proyecto Empresarial</span>
+                        </div>
+
+                        <div class="p-6 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Relatos Café</h3>
+                            
+                            <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-1">
+                                Plataforma e-commerce diseñada para una tienda de café de especialidad. 
+                                Incluye catálogo de productos, integración de pasarela de pagos, blog de noticias y sección de promociones. 
+                                <strong>Desarrollo 100% nativo</strong> enfocado en SEO y rendimiento.
+                            </p>
+
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs font-medium rounded-full">HTML5</span>
+                                <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">CSS3</span>
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs font-medium rounded-full">JavaScript</span>
+                                <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full">Responsive</span>
+                            </div>
+
+                            <div class="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
+                                <a href="https://github.com/DacneR/Relatos-Caf-" target="_blank" 
+                                class="flex items-center gap-2 text-sm font-bold text-gray-600 hover:text-primary transition-colors group/link">
+                                    <span class="text-xl group-hover/link:scale-110 transition-transform">🐙</span> Código
+                                </a>
+
+                                <a href="https://relatoscafe.com.co" target="_blank" 
+                                class="flex items-center gap-2 text-sm font-bold text-accent hover:text-green-600 transition-colors group/link">
+                                    <span class="text-xl group-hover/link:scale-110 transition-transform">🌍</span> Ver Sitio
+                                </a>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
-                        <div class="h-48 bg-gradient-accent flex items-center justify-center">
-                            <span class="text-6xl">💎</span>
+                    <div class="tilt-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 flex flex-col h-full">
+    
+                        <div class="h-48 bg-gray-900 relative group overflow-hidden border-b border-gray-100">
+                            <img src="assets/projects/Crudo-project.png" alt="Crudo Skate Shop" 
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                            
+                            <div class="absolute top-3 right-3 bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm border border-gray-600">
+                                FULL STACK 🛠️
+                            </div>
                         </div>
-                        <div class="p-8">
-                            <h3 class="text-xl font-bold text-secondary mb-4">Aplicativos Internos Crystal S.A.S</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Desarrollo frontend de aplicaciones internas con enfoque en experiencia de usuario y mantenimiento de sistemas legacy.
+
+                        <div class="p-6 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Crudo Skate Shop</h3>
+                            
+                            <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-1">
+                                E-commerce de moda urbana con diseño "street" original. 
+                                Arquitectura robusta separando el frontend en <strong>React</strong> y un backend potente en <strong>C# (.NET)</strong> con persistencia de datos en <strong>MySQL</strong>.
                             </p>
+
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">React</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">JavaScript</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">CSS3</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">.NET</span>
+                                <span class="px-2 py-1 bg-cyan-100 text-cyan-700 text-xs font-medium rounded-full">React</span>
+                                <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full">C# .NET</span>
+                                <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs font-medium rounded-full">MySQL</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">Responsive</span>
                             </div>
-                            <div class="flex justify-between items-center">
-                                <span class="bg-accent text-gray-900 font-bold py-2 px-4 rounded-full text-sm">Proyecto Corporativo</span>
-                            </div>
+
+                            <div class="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
+                                <a href="https://github.com/DacneR/client" target="_blank" 
+                                class="flex items-center gap-2 text-sm font-bold text-gray-700 hover:text-primary transition-colors group/link w-full justify-center">
+                                    <span class="text-xl group-hover/link:scale-110 transition-transform">🐙</span> Ver Código Fuente
+                                </a>
+                                
+                                </div>
                         </div>
                     </div>
                     
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
-                        <div class="h-48 bg-gradient-to-br from-warning to-yellow-400 flex items-center justify-center">
-                            <span class="text-6xl">💻</span>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-xl font-bold text-secondary mb-4">Portafolio Personal</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Landing page moderna y responsive desarrollada con HTML5, CSS3 y JavaScript vanilla. Optimizada para SEO y performance.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">HTML5</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">CSS3</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">JavaScript</span>
-                                <span class="bg-gray-100 text-secondary px-4 py-2 rounded-full text-sm">GitHub Pages</span>
+                    <div class="tilt-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 flex flex-col h-full">
+    
+                        <div class="h-48 bg-gradient-to-br from-indigo-900 to-purple-800 relative group overflow-hidden border-b border-gray-100 flex items-center justify-center">
+                            <img src="assets/projects/Funnel-project.png" alt="Crudo Skate Shop" 
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                            
+                            <div class="absolute top-3 right-3 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">
+                                AI POWERED 🧠
                             </div>
-                            <div class="flex justify-between items-center">
-                                <a href="https://github.com/dacner/portafolio" class="text-primary font-bold flex items-center gap-2 hover:text-accent transition">
-                                    <span>🐙</span> Código
+                        </div>
+
+                        <div class="p-6 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-secondary mb-3">Funnelhot Assistants</h3>
+                            
+                            <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-1">
+                                Plataforma de Inteligencia Artificial para crear y entrenar agentes personalizados. 
+                                Permite configurar el comportamiento (Prompt Engineering) para respuestas cordiales y elegantes. 
+                                Desarrollado con <strong>Next.js</strong> para máximo rendimiento y SSR.
+                            </p>
+
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 bg-black text-white text-xs font-medium rounded-full">Next.js</span>
+                                <span class="px-2 py-1 bg-cyan-100 text-cyan-700 text-xs font-medium rounded-full">React</span>
+                                <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">Node.js</span>
+                                <span class="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">OpenAI API</span>
+                            </div>
+
+                            <div class="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
+                                <a href="https://github.com/DacneR/funnelhot-assistants.git" target="_blank" 
+                                class="flex items-center gap-2 text-sm font-bold text-gray-700 hover:text-indigo-600 transition-colors group/link w-full justify-center">
+                                    <span class="text-xl group-hover/link:scale-110 transition-transform">🐙</span> Ver Código Fuente
                                 </a>
                             </div>
                         </div>
