@@ -1,194 +1,176 @@
-// Script mejorado para portafolio 2025
 document.addEventListener('DOMContentLoaded', function() {
-    // Typewriter Effect
-    const typewriterElement = document.getElementById('typewriter');
-    const titles = [
-        'Desarrollador Full-Stack',
-        'Especialista Odoo',
-        'Desarrollador .NET', 
-        'Backend Developer',
-        'Problem Solver'
-    ];
-    
-    let titleIndex = 0;
-    let charIndex = 0;
-    let currentTitle = '';
-    let isDeleting = false;
-    
-    function typeWriter() {
-        currentTitle = titles[titleIndex];
+
+    // ======================================================
+    // 1. EFECTO DE PARTÍCULAS (SOLUCIÓN DEFINITIVA)
+    // ======================================================
+    function initParticles() {
+        const container = document.getElementById('particles-js');
         
-        if (isDeleting) {
-            typewriterElement.textContent = currentTitle.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typewriterElement.textContent = currentTitle.substring(0, charIndex + 1);
-            charIndex++;
+        // Si no existe el contenedor, no hacemos nada (evita errores)
+        if (!container) {
+            console.error("No encontré el div 'particles-js'. Revisa el HTML.");
+            return;
         }
-        
-        if (!isDeleting && charIndex === currentTitle.length) {
-            isDeleting = true;
-            setTimeout(typeWriter, 2000);
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            titleIndex = (titleIndex + 1) % titles.length;
-            setTimeout(typeWriter, 500);
-        } else {
-            setTimeout(typeWriter, isDeleting ? 50 : 100);
-        }
-    }
-    
-    // Iniciar typewriter
-    if (typewriterElement) {
-        setTimeout(typeWriter, 1000);
-    }
 
-    // Smooth scroll para enlaces internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
+        // Limpiamos por si acaso
+        container.innerHTML = '';
 
-    // Efecto de navbar al hacer scroll
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        const scrollY = window.scrollY;
-        
-        if (navbar) {
-            if (scrollY > 100) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                navbar.style.backdropFilter = 'blur(20px)';
-                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                navbar.style.backdropFilter = 'blur(20px)';
-                navbar.style.boxShadow = 'none';
-            }
-        }
-    });
-
-    // Animación de elementos al hacer scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observar elementos para animación
-    document.querySelectorAll('.skill-item, .project-card, .timeline-item').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-
-    // Efecto de partículas en el hero (simple)
-    function createParticles() {
-        const hero = document.querySelector('#home');
-        if (!hero) return;
-        
-        for (let i = 0; i < 15; i++) {
+        // Creamos 25 partículas
+        for (let i = 0; i < 25; i++) {
             const particle = document.createElement('div');
+            
+            // Aleatoriedad
+            const size = Math.random() * 6 + 2; // Entre 2px y 8px
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            const duration = Math.random() * 15 + 10; // Entre 10s y 25s
+            const opacity = Math.random() * 0.5 + 0.1;
+
+            // Estilos IN-LINE para asegurar que se vean
             particle.style.position = 'absolute';
-            particle.style.width = '4px';
-            particle.style.height = '4px';
-            particle.style.background = 'rgba(255, 255, 255, 0.5)';
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.background = 'white'; // Blanco puro
             particle.style.borderRadius = '50%';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.animation = `float ${3 + Math.random() * 4}s infinite ease-in-out`;
-            particle.style.animationDelay = Math.random() * 5 + 's';
-            hero.appendChild(particle);
+            particle.style.left = `${posX}%`;
+            particle.style.top = `${posY}%`;
+            particle.style.opacity = opacity;
+            particle.style.pointerEvents = 'none';
+            // Animación CSS inyectada
+            particle.style.animation = `floatingParticles ${duration}s infinite linear`;
+            
+            container.appendChild(particle);
         }
-        
-        // Agregar keyframes para la animación
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float {
-                0%, 100% { transform: translateY(0) rotate(0deg); }
-                50% { transform: translateY(-20px) rotate(180deg); }
+
+        // Inyectamos la Keyframe Animation en el documento
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes floatingParticles {
+                0% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+                50% { opacity: 0.5; }
+                100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
             }
         `;
-        document.head.appendChild(style);
+        document.head.appendChild(styleSheet);
     }
-
-    createParticles();
-
-    // Contador de estadísticas
-    function animateStats() {
-        const stats = document.querySelectorAll('.stat h3');
-        stats.forEach(stat => {
-            const target = parseInt(stat.textContent);
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    stat.textContent = target + '+';
-                    clearInterval(timer);
-                } else {
-                    stat.textContent = Math.floor(current) + '+';
-                }
-            }, 40);
-        });
-    }
-
-    // Iniciar animación de stats cuando sean visibles
-    const statsObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateStats();
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    const statsSection = document.querySelector('.hero-stats');
-    if (statsSection) {
-        statsObserver.observe(statsSection);
-    }
-});
-
-// Función para descargar CV (simulada)
-function downloadCV() {
-    // En un caso real, aquí iría la lógica para descargar el PDF
-    alert('📥 En una implementación real, aquí se descargaría tu CV en PDF');
-    // window.open('ruta/a/tu-cv.pdf', '_blank');
-}
-
-// Efecto de tilt en tarjetas de proyecto
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', function(e) {
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const angleY = (x - centerX) / 25;
-        const angleX = (centerY - y) / 25;
-        
-        this.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-8px)`;
-    });
     
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(-8px)';
+    // Ejecutamos partículas
+    initParticles();
+
+
+    // ======================================================
+    // 2. EFECTO TILT 3D (TARJETAS QUE SE MUEVEN)
+    // ======================================================
+    // Seleccionamos automáticamente tus tarjetas de "Sobre mí" y "Proyectos"
+    // Buscamos los divs que tienen fondo blanco (bg-white) o gris (bg-gray-50) y bordes redondeados
+    const cards = document.querySelectorAll('.bg-white.rounded-xl, .bg-gray-50.rounded-xl');
+
+    if (window.matchMedia("(hover: hover)").matches) { // Solo en PC con mouse
+        cards.forEach(card => {
+            // Configuración inicial de transición
+            card.style.transition = 'transform 0.1s ease, box-shadow 0.3s ease';
+            card.style.transformStyle = 'preserve-3d';
+
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                // Cálculo del ángulo (Divisor más alto = movimiento más sutil)
+                const rotateX = ((y - centerY) / 25) * -1;
+                const rotateY = (x - centerX) / 25;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                card.style.zIndex = '20'; // Traer al frente
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transition = 'transform 0.5s ease'; // Salida suave
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                card.style.zIndex = '1';
+            });
+        });
+    }
+
+
+    // ======================================================
+    // 3. MÁQUINA DE ESCRIBIR (TYPEWRITER)
+    // ======================================================
+    const typeElement = document.querySelector('.typewriter');
+    if (typeElement) {
+        const words = ["Desarrollador Full-Stack", "Experto en Odoo", "Backend .NET", "Frontend React"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                typeElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typeElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000; // Pausa al terminar palabra
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+        type();
+    }
+
+
+    // ======================================================
+    // 4. LÓGICA DEL MENÚ (HAMBURGUESA)
+    // ======================================================
+    const menuBtn = document.getElementById('mobileMenuToggle');
+    const closeBtn = document.getElementById('closeMenuBtn');
+    const navbar = document.getElementById('navbar');
+    const overlay = document.getElementById('mobileOverlay');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function toggleMenu() {
+        if(!navbar) return;
+        navbar.classList.toggle('-translate-x-full');
+        
+        if (overlay) {
+            if (overlay.classList.contains('hidden')) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+            } else {
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+    }
+
+    if(menuBtn) menuBtn.addEventListener('click', toggleMenu);
+    if(closeBtn) closeBtn.addEventListener('click', toggleMenu);
+    if(overlay) overlay.addEventListener('click', toggleMenu);
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 768) toggleMenu();
+        });
     });
+
 });
+
+// Función global para el botón HTML
+function downloadCV() {
+    alert("Iniciando descarga del CV...");
+}
