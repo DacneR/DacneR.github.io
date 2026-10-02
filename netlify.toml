@@ -1,0 +1,4 @@
+# El portafolio es HTML, CSS y JS. Netlify publica esta carpeta sin compilar.
+[build]
+  publish = "."
+  command = ""

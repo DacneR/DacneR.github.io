@@ -3,222 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dacner Patiño - Desarrollador de Software</title>
-    <meta name="description" content="Desarrollador Full-Stack especializado en .NET, Odoo y soluciones backend. +2 años de experiencia en desarrollo de software.">
-    
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-favicon.png">
+    <title>Dacner Patiño — Forward Deployed Engineer</title>
+    <meta name="description" content="Forward Deployed Engineer en Medellín. Odoo 18 en la operación de REALNET, React en CRYSTAL y AXIOM en AxSoftware: búsqueda de literatura, sesión y alertas.">
+    <meta name="theme-color" content="#0c1222">
+    <link rel="canonical" href="https://dacner.github.io/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:url" content="https://dacner.github.io/">
+    <meta property="og:title" content="Dacner Patiño — Forward Deployed Engineer">
+    <meta property="og:description" content="Odoo 18 en cliente, React en producto y AXIOM en línea. Medellín, Colombia.">
+    <meta property="og:image" content="https://dacner.github.io/assets/projects/Axiom-project.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dacner Patiño — Forward Deployed Engineer">
+    <meta name="twitter:description" content="Odoo 18 en cliente, React en producto y AXIOM en línea. Medellín, Colombia.">
+    <meta name="twitter:image" content="https://dacner.github.io/assets/projects/Axiom-project.jpg">
+
+    <link rel="icon" type="image/png" sizes="128x128" href="assets/icons/icon-favicon.png">
 
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
     <style type="text/tailwindcss">
-        /* 2. CONFIGURACIÓN DEL TEMA (CARBON & AMBER) */
         @theme {
-            /* Colores Base del Tema Oscuro */
-            --color-primary: #f59e0b;   /* Ámbar (Amber-500) - Color principal */
-            --color-secondary: #0f172a; /* Slate-900 (Fondo Carbón Oscuro) */
-            --color-surface: #1e293b;   /* Slate-800 (Fondo Tarjetas) */
-            --color-text-main: #f1f5f9; /* Slate-100 (Texto claro) */
-            --color-text-muted: #94a3b8; /* Slate-400 (Texto secundario) */
-            
-            /* Bordes sutiles */
-            --color-border: #334155;    /* Slate-700 */
-
-            /* Gradientes Oscuros */
-            --background-image-gradient-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --background-image-gradient-accent: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --color-primary: #8fcec0;
+            --color-secondary: #0c1222;
+            --color-surface: #161e30;
+            --color-text-main: #e7ecf5;
+            --color-text-muted: #9aa6bd;
+            --color-border: #2a3548;
+            --background-image-gradient-primary: linear-gradient(135deg, #0c1222 0%, #161e30 100%);
+            --background-image-gradient-accent: linear-gradient(135deg, #8fcec0 0%, #5f9e8c 100%);
         }
 
-        /* 3. ESTILOS MANUALES */
-        html {
-            scroll-behavior: smooth;
-        }
-        
+        html { scroll-behavior: smooth; }
+
         body {
             background-color: var(--color-secondary);
             color: var(--color-text-main);
         }
 
-        /* Efecto de subrayado en hover (Color Ámbar) */
-        .nav-link-hover {
-            position: relative;
-        }
-        .nav-link-hover::after {
-            content: '';
+        .skip-link {
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
+            left: 1rem;
+            top: -4rem;
+            z-index: 80;
             background: var(--color-primary);
-            transition: width 0.3s ease;
+            color: var(--color-secondary);
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
         }
-        .nav-link-hover:hover::after {
-            width: 100%;
-        }
+        .skip-link:focus { top: 1rem; }
 
-        /* Máquina de escribir (Cursor Ámbar) */
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+        .caret {
+            display: inline-block;
+            width: 3px;
+            height: 0.9em;
+            margin-left: 3px;
+            background: var(--color-primary);
+            vertical-align: text-bottom;
+            animation: blink 0.75s step-end infinite;
         }
         @keyframes blink {
-            50% { border-color: transparent; }
+            50% { opacity: 0; }
         }
-        .typewriter {
-            overflow: hidden;
-            border-right: 3px solid var(--color-primary);
-            white-space: nowrap;
-            animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+
+        .avatar-ring { transform-origin: center; }
+        .tilt-surface { transition: transform .18s ease; will-change: transform; }
+        main { display: flex; flex-direction: column; }
+        #home { order: 1; }
+        #projects { order: 2; }
+        #about { order: 3; }
+        #experience { order: 4; }
+        #skills { order: 5; }
+        #contact { order: 6; }
+        footer { order: 7; }
+
+        .unfold-inner { min-height: 0; }
+
+        #about { overflow-x: clip; }
+        .about-stage { overflow: hidden; padding: 0.75rem 0.35rem 0.75rem 0.75rem; }
+        #experience { overflow-x: clip; }
+        .experience-stage { overflow: hidden; container-type: inline-size; }
+        .job-card { width: 100%; overflow: hidden; transform-origin: left center; }
+        .job-body { width: 100cqi; }
+        .about-card {
+            position: relative;
+            color: var(--color-primary);
+            border-radius: var(--radius, 1rem);
+        }
+        .about-card::after {
+            position: absolute;
+            opacity: .22;
+            top: 0;
+            left: 0;
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: currentColor;
+            border-radius: inherit;
+            transform: scale(var(--pseudo-el-after-scale, 1));
+            pointer-events: none;
+        }
+        .about-card > * { position: relative; z-index: 1; }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-reveal,
+            .reveal-card { opacity: 0; }
+            .unfold {
+                display: grid;
+                grid-template-rows: 0fr;
+                opacity: 0;
+                transition: grid-template-rows .7s cubic-bezier(.22, 1, .36, 1), opacity .45s ease;
+            }
+            .unfold.is-open { grid-template-rows: 1fr; opacity: 1; }
+            .unfold-inner { overflow: hidden; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .caret { animation: none; }
+            .hero-reveal,
+            .reveal-card { opacity: 1; }
         }
     </style>
-    
 </head>
 <body class="font-sans antialiased selection:bg-primary selection:text-secondary">
-    
-    <button id="mobileMenuToggle" class="fixed top-4 left-4 z-50 md:hidden bg-surface/90 backdrop-blur p-2 rounded-lg shadow-md border border-border text-gray-200">
-        ☰
-    </button>
-    <div id="mobileOverlay" class="fixed inset-0 bg-black/70 z-40 hidden md:hidden transition-opacity opacity-0"></div>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <nav id="navbar" class="fixed left-0 top-0 h-screen w-64 bg-surface/98 backdrop-blur-md z-50 border-r border-border transition-transform duration-300 flex flex-col shadow-xl -translate-x-full md:translate-x-0">
-        
-        <button id="closeMenuBtn" class="absolute top-2 right-2 md:hidden text-gray-400 hover:text-red-500 p-2 text-xl">✕</button>
-
-        <div class="p-4 border-b border-border shrink-0 flex flex-col items-center">
-            <a href="#home" class="block hover:scale-105 transition-transform duration-300">
-                <img src="/assets/Avatar-cartoon.jpg" alt="DP" 
-                    class="h-24 w-20 md:h-32 md:w-24 rounded-full border-[3px] border-primary hover:border-white transition-all duration-300 object-cover shadow-lg shadow-primary/10">
-            </a>
-            <p class="mt-2 text-sm font-bold text-gray-200">Dacner Patiño</p>
-            <p class="text-[10px] text-primary font-medium tracking-wide bg-primary/10 px-2 py-0.5 rounded-full mt-1 border border-primary/20">Full-Stack Dev</p>
+    <header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 bg-secondary/75 backdrop-blur-md">
+        <div class="relative mx-auto flex h-16 max-w-6xl items-center justify-center px-4 md:px-8">
+            <nav class="hidden md:flex items-center gap-7 text-xs tracking-[0.18em] uppercase text-slate-300" aria-label="Secciones">
+                <a href="#home" class="hover:text-primary">Inicio</a>
+                <a href="#projects" class="hover:text-primary">Proyectos</a>
+                <a href="#about" class="hover:text-primary">Sobre mí</a>
+                <a href="#experience" class="hover:text-primary">Experiencia</a>
+                <a href="#skills" class="hover:text-primary">Habilidades</a>
+                <a href="#contact" class="hover:text-primary">Contacto</a>
+            </nav>
+            <a href="https://wa.me/573242265806?text=Hola%20Dacner,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex absolute right-4 md:right-8 bg-primary text-secondary text-xs font-bold tracking-[0.16em] uppercase px-4 py-2 rounded-full">Hablemos</a>
+            <button id="mobileMenuToggle" class="md:hidden absolute right-4 border border-border rounded-lg px-3 py-2 text-sm" aria-label="Abrir menú" aria-expanded="false" aria-controls="navbar">Menú</button>
         </div>
+        <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-40 hidden md:hidden"></div>
+        <nav id="navbar" class="hidden md:hidden relative z-50 border-t border-white/10 bg-secondary px-4 py-4 flex flex-col gap-3 text-sm" aria-label="Secciones">
+            <button id="closeMenuBtn" class="self-end text-slate-300" aria-label="Cerrar menú">Cerrar</button>
+            <a href="#home" class="nav-link py-2">Inicio</a>
+            <a href="#projects" class="nav-link py-2">Proyectos</a>
+            <a href="#about" class="nav-link py-2">Sobre mí</a>
+            <a href="#experience" class="nav-link py-2">Experiencia</a>
+            <a href="#skills" class="nav-link py-2">Habilidades</a>
+            <a href="#contact" class="nav-link py-2">Contacto</a>
+        </nav>
+    </header>
 
-        <div class="flex-1 px-3 py-2 overflow-y-auto">
-            <div class="flex flex-col gap-1"> 
-                <a href="#home" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-slate-700/50 text-gray-400 hover:text-primary transition-all duration-200 group">
-                    <span class="font-medium text-sm">Inicio</span>
-                </a>
-                <a href="#experience" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-slate-700/50 text-gray-400 hover:text-primary transition-all duration-200 group">
-                    <span class="font-medium text-sm">Experiencia</span>
-                </a>
-                <a href="#skills" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-slate-700/50 text-gray-400 hover:text-primary transition-all duration-200 group">
-                    <span class="font-medium text-sm">Habilidades</span>
-                </a>
-                <a href="#projects" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-slate-700/50 text-gray-400 hover:text-primary transition-all duration-200 group">
-                    <span class="font-medium text-sm">Proyectos</span>
-                </a>
-                <a href="#contact" class="nav-link flex items-center px-3 py-2 rounded-lg hover:bg-slate-700/50 text-gray-400 hover:text-primary transition-all duration-200 group">
-                    <span class="font-medium text-sm">Contacto</span>
-                </a>
-            </div>
-        </div>
+    <main id="contenido" class="w-full min-h-screen">
 
-        <div class="p-3 border-t border-border mt-auto shrink-0">
-            <div class="flex justify-center gap-5 mb-2">
-                <a href="mailto:Dacnerpiedrahita@gmail.com" class="text-gray-500 hover:text-primary transition-colors duration-200" title="Enviar Correo">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </a>
-                <a href="tel:+573242265806" class="text-gray-500 hover:text-primary transition-colors duration-200" title="Llamar">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.43-5.15-3.75-6.58-6.59l1.97-1.57c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.28 3 3.93 3 4.74c0 9.27 7.53 16.8 16.8 16.8.81 0 1.46-.65 1.46-1.19v-3.99c0-.54-.45-.99-.99-.99z"/></svg>
-                </a>
-                <a href="https://wa.me/573242265806?text=Hola%20Dacner,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte." target="_blank" class="text-gray-500 hover:text-[#25D366] transition-colors duration-200" title="WhatsApp">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                </a>
-            </div>
-            <p class="text-[10px] text-gray-600 text-center uppercase tracking-widest">&copy; 2026</p>
-        </div>
-    </nav>
+        <section id="home" class="relative overflow-hidden min-h-screen bg-gradient-primary text-white pt-16 flex flex-col justify-center">
+            <div id="particles-js" class="absolute inset-0 z-0 pointer-events-none" aria-hidden="true"></div>
 
-    <main class="w-full md:pl-64 min-h-screen transition-all duration-300">
-        
-        <section id="home" class="relative overflow-hidden min-h-screen bg-gradient-primary text-white pt-20 md:pt-24 flex flex-col justify-center">
-    
-            <div id="particles-js" class="absolute inset-0 z-0 pointer-events-none"></div>
-
-            <div class="container mx-auto px-4 md:px-8 py-8 md:py-12 relative z-10">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                    <div class="order-1 md:order-2 text-center md:text-left max-w-2xl">
-                        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+            <div class="container mx-auto px-4 md:px-8 py-16 relative z-10">
+                <div class="grid items-center gap-12 lg:grid-cols-[1.3fr_.7fr]">
+                <div class="max-w-3xl text-center md:text-left">
+                        <p class="hero-reveal text-xs font-semibold tracking-[0.28em] uppercase text-primary mb-6">AxSoftware · Medellín</p>
+                        <h1 class="hero-reveal text-4xl md:text-6xl font-bold mb-4">
                             <span class="text-white">Dacner Patiño</span>
                         </h1>
-                        
-                        <div class="h-16 mb-6">
-                            <p class="text-2xl md:text-3xl font-semibold text-primary typewriter">
-                                Desarrollador Full-Stack
+
+                        <div class="hero-reveal min-h-16 mb-6">
+                            <p class="text-2xl md:text-3xl font-semibold text-primary">
+                                <span id="typewriter-text">Forward Deployed Engineer</span><span class="caret" aria-hidden="true"></span>
                             </p>
                         </div>
-                        
-                        <p class="text-lg md:text-xl mb-10 leading-relaxed text-gray-400">
-                            Especializado en <strong class="text-white">.NET</strong>, <strong class="text-white">Odoo</strong> y soluciones backend. 
-                            Apasionado por la resolución de problemas complejos y el código limpio.
+
+                        <p class="hero-reveal text-base md:text-lg mb-10 leading-relaxed text-slate-300">
+                            Hay un prototipo que busca papers y avisa por WhatsApp. Si quieres el tuyo, escríbeme.
                         </p>
-                        
-                        <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                            <a href="#contact" class="bg-primary text-secondary font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 text-center">
-                                Contactar Ahora
+
+                        <div class="hero-reveal flex flex-col sm:flex-row flex-wrap gap-4 mb-12">
+                            <a href="https://wa.me/573242265806?text=Hola%20Dacner,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener noreferrer" class="bg-primary text-secondary font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 text-center">
+                                Escribir por WhatsApp
                             </a>
                             <a href="#projects" class="bg-transparent border-2 border-slate-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-white hover:text-secondary transition-all duration-300 text-center">
-                                Ver Proyectos
+                                Ver proyectos
                             </a>
-                            <a href="assets/cv.pdf" download class="bg-surface text-white border border-slate-700 font-bold py-3 px-8 rounded-xl shadow-lg hover:border-primary transition-all duration-300 text-center flex items-center justify-center gap-2">
-                                <span>📥</span> Descargar CV
+                            <a href="assets/cv.pdf" download class="bg-surface text-white border border-slate-700 font-bold py-3 px-8 rounded-xl shadow-lg hover:border-primary transition-all duration-300 text-center">
+                                Descargar CV
                             </a>
                         </div>
-                        
-                        <div class="flex flex-wrap justify-center md:justify-start gap-8 md:gap-12">
-                            <div class="text-center">
-                                <div class="text-3xl md:text-4xl font-bold text-primary">2+</div>
-                                <div class="opacity-80 text-gray-400">Años Experiencia</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-3xl md:text-4xl font-bold text-primary">10+</div>
-                                <div class="opacity-80 text-gray-400">Proyectos Completados</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-3xl md:text-4xl font-bold text-primary">5+</div>
-                                <div class="opacity-80 text-gray-400">Tecnologías Dominadas</div>
-                            </div>
-                        </div>
+
+                </div>
+                <div class="hero-reveal flex justify-center">
+                    <a href="#home" class="relative flex h-56 w-56 md:h-72 md:w-72 items-center justify-center">
+                        <svg class="avatar-ring pointer-events-none absolute inset-0 h-full w-full text-primary" viewBox="0 0 100 100" aria-hidden="true">
+                            <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="18 12"/>
+                        </svg>
+                        <img src="assets/Avatar-cartoon.jpg" alt="Retrato ilustrado de Dacner Patiño" width="640" height="942"
+                            class="relative z-10 h-44 w-36 md:h-56 md:w-44 rounded-full object-cover object-top shadow-2xl shadow-primary/20">
+                    </a>
+                </div>
+                </div>
+                <div class="hero-reveal mt-14 flex flex-wrap justify-center gap-x-10 gap-y-8 md:justify-between">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-primary">3</div>
+                        <div class="text-slate-300">Empresas</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-primary">4</div>
+                        <div class="text-slate-300">Proyectos en este sitio</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-primary">Odoo 18</div>
+                        <div class="text-slate-300">Enterprise y Community</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-primary">Prisma</div>
+                        <div class="text-slate-300">API y PostgreSQL</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-primary">Alertas</div>
+                        <div class="text-slate-300">SMS, WhatsApp y voz</div>
                     </div>
                 </div>
             </div>
 
-            <div class="container mx-auto px-4 md:px-8 py-20 bg-surface border-t border-border relative z-10 w-full max-w-full">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white relative">
-                    Sobre Mí
-                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></div>
-                </h2>
-                
-                <div class="max-w-4xl mx-auto">
-                    <p class="text-lg md:text-xl text-gray-400 text-center mb-12 leading-relaxed">
-                        Profesional motivado con pasión por la tecnología y el desarrollo digital, 
-                        con competencias en desarrollo backend, bases de datos y programación. 
-                        Me destaco por mi capacidad de adaptación, trabajo bajo presión y 
-                        dedicación para lograr resultados de calidad.
+        </section>
+
+        <section id="about" class="py-24 bg-surface border-t border-border">
+            <div class="container mx-auto px-4 md:px-8 w-full max-w-6xl">
+                <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-28">
+                <div>
+                <h2 class="text-xs tracking-[0.28em] uppercase text-primary mb-6">Sobre mí</h2>
+                    <p class="text-base md:text-lg text-slate-300 leading-relaxed">
+                        Entro al dominio del problema, separo el flujo en interfaz, API y persistencia, y lo dejo en un build que se puede desplegar. Esa hipótesis tiene que sostenerse con el primer usuario, el caso límite y el entorno real. Trabajo desde Medellín como Forward Deployed Engineer.
                     </p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-6 p-6 bg-secondary/50 rounded-xl border border-border hover:border-primary/50 transition-colors">
-                            <span class="text-2xl">🎓</span>
+                </div>
+
+                    <div class="about-stage space-y-6">
+                        <div class="about-card flex items-start gap-6 p-6 bg-secondary/50 border border-border hover:border-primary/50 transition-colors">
+                            <span class="text-2xl" aria-hidden="true">🎓</span>
                             <div>
                                 <strong class="text-lg text-white">Tecnólogo en Desarrollo de Software</strong>
-                                <p class="text-gray-500">Institución Universitaria Pascual Bravo · 2022-2025</p>
+                                <p class="text-slate-400">Institución Universitaria Pascual Bravo · 2022-2025</p>
                             </div>
                         </div>
-                        
-                        <div class="flex items-start gap-6 p-6 bg-secondary/50 rounded-xl border border-border hover:border-primary/50 transition-colors">
-                            <span class="text-2xl">🎓</span>
+
+                        <div class="about-card flex items-start gap-6 p-6 bg-secondary/50 border border-border hover:border-primary/50 transition-colors">
+                            <span class="text-2xl" aria-hidden="true">🎓</span>
                             <div>
                                 <strong class="text-lg text-white">Técnico en Desarrollo de Software</strong>
-                                <p class="text-gray-500">Institución Educativa Dinamarca · 2020-2021</p>
+                                <p class="text-slate-400">Institución Educativa Dinamarca · 2020-2021</p>
                             </div>
                         </div>
-                        
-                        <div class="flex items-start gap-6 p-6 bg-secondary/50 rounded-xl border border-border hover:border-primary/50 transition-colors">
-                            <span class="text-2xl">📍</span>
+
+                        <div class="about-card flex items-start gap-6 p-6 bg-secondary/50 border border-border hover:border-primary/50 transition-colors">
+                            <span class="text-2xl" aria-hidden="true">📍</span>
                             <div>
                                 <strong class="text-lg text-white">Ubicación</strong>
-                                <p class="text-gray-500">Medellín, Colombia</p>
+                                <p class="text-slate-400">Medellín, Colombia</p>
                             </div>
                         </div>
                     </div>
@@ -228,55 +270,77 @@
 
         <section id="experience" class="py-20 bg-secondary">
             <div class="container mx-auto px-4 md:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white relative">
-                    Experiencia Laboral
-                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-white relative">
+                    Experiencia laboral
+                    <span class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></span>
                 </h2>
-                
-                <div class="max-w-4xl mx-auto relative">
-                    <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-primary/30 hidden md:block"></div>
-                    
-                    <div class="flex flex-col md:flex-row mb-12 relative">
-                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
-                            <div class="font-bold text-primary">Oct 2025 – Nov 2025</div>
+                <p class="text-center text-slate-300 max-w-2xl mx-auto mb-16 mt-8">Tres cargos con empresa y fechas. El actual es Forward Deployed Engineer en AxSoftware.</p>
+
+                <div id="experience-track" class="experience-stage relative mx-auto max-w-5xl space-y-6">
+                    <article class="job-card rounded-xl shadow-lg border border-border bg-surface">
+                        <div class="job-body flex flex-col gap-6 p-6 md:flex-row md:items-start md:p-8">
+                        <div class="md:w-56 shrink-0">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-2">01</p>
+                            <p class="font-bold text-primary mb-2">Ago 2026 – Actualidad</p>
+                            <h3 class="text-xl font-bold text-white mb-1">Forward Deployed Engineer</h3>
+                            <p class="text-lg text-primary">AxSoftware</p>
                         </div>
-                        <div class="md:w-1/2 md:pl-12">
-                            <div class="bg-surface p-8 rounded-xl shadow-lg border border-border border-l-4 border-l-primary">
-                                <h3 class="text-xl font-bold text-white mb-2">Programador Odoo</h3>
-                                <h4 class="text-lg text-primary mb-4">REALNET</h4>
-                                <p class="text-gray-400 mb-6 leading-relaxed">
-                                    Desarrollo de funcionalidades y mantenimiento de aplicativos internos de la compañía, 
-                                    con énfasis en la personalización y programación sobre <strong>Odoo 18</strong>.
-                                </p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">Odoo 18</span>
-                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">Python</span>
-                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">PostgreSQL</span>
-                                </div>
-                            </div>
+                        <div class="min-w-0 flex-1">
+                            <p class="text-slate-300 mb-6 leading-relaxed">
+                                En AXIOM, el sistema para buscar, guardar y avisar literatura científica, implementé fases en el frontend y en el API: login con JWT, búsqueda en arXiv, Europe PMC, DOAJ, PubMed, Open Library e Internet Archive, biblioteca de papers y opt-in de alertas por SMS, WhatsApp y voz. El prototipo está en línea.
+                            </p>
+                            <ul class="flex flex-wrap gap-2">
+                                <li class="bg-secondary text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-border">React</li>
+                                <li class="bg-secondary text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-border">TypeScript</li>
+                                <li class="bg-secondary text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-border">Express</li>
+                                <li class="bg-secondary text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-border">Prisma</li>
+                                <li class="bg-secondary text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-border">PostgreSQL</li>
+                            </ul>
                         </div>
-                    </div>
-                    
-                    <div class="flex flex-col md:flex-row mb-12 relative">
-                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
-                            <div class="font-bold text-primary">Feb 2025 – Ago 2025</div>
                         </div>
-                        <div class="md:w-1/2 md:pl-12 order-1 md:order-2">
-                            <div class="bg-surface p-8 rounded-xl shadow-lg border border-border border-l-4 border-l-accent">
-                                <h3 class="text-xl font-bold text-white mb-2">Desarrollador Frontend</h3>
-                                <h4 class="text-lg text-accent mb-4">CRYSTAL S.A.S</h4>
-                                <p class="text-gray-400 mb-6 leading-relaxed">
-                                    Desarrollo enfocado a aplicativos internos de la empresa y resolución de problemas lógicos 
-                                    para sistemas complejos.
-                                </p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">React</span>
-                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">JavaScript</span>
-                                    <span class="bg-secondary text-gray-400 px-4 py-2 rounded-full text-sm font-medium border border-border">CSS3</span>
-                                </div>
-                            </div>
+                    </article>
+
+                    <article class="job-card rounded-xl shadow-lg border border-border bg-surface">
+                        <div class="job-body flex flex-col gap-6 p-6 md:flex-row md:items-start md:p-8">
+                        <div class="md:w-56 shrink-0">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-2">02</p>
+                            <p class="font-bold text-primary mb-2">Oct 2025 – Nov 2025</p>
+                            <h3 class="text-xl font-bold text-white mb-1">Programador Odoo</h3>
+                            <p class="text-lg text-primary">REALNET</p>
                         </div>
-                    </div>
+                        <div class="min-w-0 flex-1">
+                            <p class="text-slate-300 mb-6 leading-relaxed">
+                                Personalización y mantenimiento de Odoo 18 y 18.2, Enterprise y Community, con Python y PostgreSQL, sobre los aplicativos internos de la compañía.
+                            </p>
+                            <ul class="flex flex-wrap gap-2">
+                                <li class="bg-secondary text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-border">Odoo 18</li>
+                                <li class="bg-secondary text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-border">Python</li>
+                                <li class="bg-secondary text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-border">PostgreSQL</li>
+                            </ul>
+                        </div>
+                        </div>
+                    </article>
+
+                    <article class="job-card rounded-xl shadow-lg border border-border bg-surface">
+                        <div class="job-body flex flex-col gap-6 p-6 md:flex-row md:items-start md:p-8">
+                        <div class="md:w-56 shrink-0">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-2">03</p>
+                            <p class="font-bold text-primary mb-2">Feb 2025 – Ago 2025</p>
+                            <h3 class="text-xl font-bold text-white mb-1">Desarrollador frontend</h3>
+                            <p class="text-lg text-primary">CRYSTAL S.A.S</p>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <p class="text-slate-300 mb-6 leading-relaxed">
+                                Interfaces en React, JavaScript y CSS para aplicativos internos, cuidando la paleta de colores del producto y la lógica de cada pantalla.
+                            </p>
+                            <ul class="flex flex-wrap gap-2">
+                                <li class="bg-secondary text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-border">React</li>
+                                <li class="bg-secondary text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-border">JavaScript</li>
+                                <li class="bg-secondary text-slate-300 px-4 py-2 rounded-full text-sm font-medium border border-border">CSS</li>
+                            </ul>
+                        </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -284,182 +348,233 @@
         <section id="skills" class="py-20 bg-surface border-t border-border">
             <div class="container mx-auto px-4 md:px-8">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white relative">
-                    Habilidades Técnicas
-                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></div>
+                    Habilidades
+                    <span class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></span>
                 </h2>
-                
+
                 <div class="max-w-4xl mx-auto">
-                    
                     <div class="flex justify-center mb-8">
-                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-accent w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-white mb-3">Resolución de Problemas</h4>
-                            <p class="text-gray-400">Análisis y solución de problemas lógicos complejos</p>
+                        <div class="reveal-card tilt-surface bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-primary w-full max-w-md text-center">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-3">01</p>
+                            <h3 class="text-xl font-bold text-white">En el cliente</h3>
+                            <div class="unfold"><div class="unfold-inner"><p class="text-slate-300 pt-3">Llevo el sistema a la operación: Odoo, interfaces y producto en línea.</p></div></div>
                         </div>
                     </div>
-                    
-                    <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
-                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-primary w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-white mb-3">Backend</h4>
-                            <p class="text-gray-400">.NET, Node.js, APIs REST</p>
+
+                    <div class="flex flex-col md:flex-row justify-center items-stretch gap-8 mb-8">
+                        <div class="reveal-card tilt-surface bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-primary w-full max-w-xs text-center">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-3">02</p>
+                            <h3 class="text-xl font-bold text-white">Backend</h3>
+                            <div class="unfold"><div class="unfold-inner"><p class="text-slate-300 pt-3">Node.js, Express, Prisma</p></div></div>
                         </div>
-                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-warning w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-white mb-3">Frontend</h4>
-                            <p class="text-gray-400">React, HTML5, CSS3, JavaScript</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col md:flex-row justify-center items-center gap-8">
-                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-purple-500 w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-white mb-3">Bases de Datos</h4>
-                            <p class="text-gray-400">MySQL, MongoDB, PostgreSQL</p>
-                        </div>
-                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-warning w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-white mb-3">Odoo</h4>
-                            <p class="text-gray-400">Enterprise & Community</p>
-                        </div>
-                        <div class="bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-accent w-full max-w-xs text-center">
-                            <h4 class="text-xl font-bold text-white mb-3">Tools</h4>
-                            <p class="text-gray-400">Git, Linux, Docker</p>
+                        <div class="reveal-card tilt-surface bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-primary w-full max-w-xs text-center">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-3">03</p>
+                            <h3 class="text-xl font-bold text-white">Frontend</h3>
+                            <div class="unfold"><div class="unfold-inner"><p class="text-slate-300 pt-3">React, Next.js, TypeScript</p></div></div>
                         </div>
                     </div>
-                    
+
+                    <div class="flex flex-col md:flex-row justify-center items-stretch gap-8">
+                        <div class="reveal-card tilt-surface bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-primary w-full max-w-xs text-center">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-3">04</p>
+                            <h3 class="text-xl font-bold text-white">Datos</h3>
+                            <div class="unfold"><div class="unfold-inner"><p class="text-slate-300 pt-3">PostgreSQL, MySQL</p></div></div>
+                        </div>
+                        <div class="reveal-card tilt-surface bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-primary w-full max-w-xs text-center">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-3">05</p>
+                            <h3 class="text-xl font-bold text-white">Odoo</h3>
+                            <div class="unfold"><div class="unfold-inner"><p class="text-slate-300 pt-3">18 Enterprise y Community · Python</p></div></div>
+                        </div>
+                        <div class="reveal-card tilt-surface bg-secondary p-8 rounded-xl shadow-lg border border-border border-t-4 border-t-primary w-full max-w-xs text-center">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-3">06</p>
+                            <h3 class="text-xl font-bold text-white">Herramientas</h3>
+                            <div class="unfold"><div class="unfold-inner"><p class="text-slate-300 pt-3">Git, Linux</p></div></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="projects" class="py-20 bg-secondary">
             <div class="container mx-auto px-4 md:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white relative">
-                    Proyectos Destacados
-                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-white relative">
+                    Proyectos
+                    <span class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></span>
                 </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="tilt-card bg-surface rounded-xl overflow-hidden shadow-lg border border-border hover:border-primary/50 transition-all flex flex-col h-full">
-                        <div class="h-48 bg-slate-900 relative group overflow-hidden border-b border-border">
-                            <img src="assets/projects/Rcafe-project.png" alt="Relatos Café Website" 
-                                class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105">
-                            <div class="absolute top-3 right-3 bg-green-500/20 text-green-400 border border-green-500/30 text-[10px] font-bold px-2 py-1 rounded shadow-sm">ONLINE 🟢</div>
-                        </div>
+                <p class="text-center text-slate-300 max-w-2xl mx-auto mb-16 mt-8">Cada ficha dice el problema, qué hice y con qué se puede comprobar.</p>
 
-                        <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-white mb-3">Relatos Café</h3>
-                            <p class="text-gray-400 text-sm mb-6 leading-relaxed flex-1">
-                                Plataforma e-commerce diseñada para una tienda de café de especialidad.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">HTML5</span>
-                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">CSS3</span>
-                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">JS</span>
-                            </div>
-                            <div class="flex items-center justify-between pt-4 border-t border-border mt-auto">
-                                <a href="https://github.com/DacneR/Relatos-Caf-" target="_blank" class="flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-colors"><span class="text-xl">🐙</span> Código</a>
-                                <a href="https://relatoscafe.com.co" target="_blank" class="flex items-center gap-2 text-sm font-bold text-primary hover:text-amber-300 transition-colors"><span class="text-xl">🌍</span> Ver Sitio</a>
+                <div class="flex flex-col gap-8">
+                    <article class="reveal-card"><div class="tilt-surface bg-surface rounded-xl overflow-hidden shadow-lg border border-border hover:border-primary/50 transition-colors flex flex-col md:flex-row">
+                        <div class="md:w-1/2 h-56 md:h-auto bg-slate-900 relative overflow-hidden border-b md:border-b-0 md:border-r border-border">
+                            <img src="assets/projects/Axiom-project.jpg" alt="Marca de AXIOM, sistema de literatura científica" width="1200" height="800" loading="lazy"
+                                class="w-full h-full object-cover">
+                            <span class="absolute top-3 right-3 bg-green-500/20 text-green-300 border border-green-500/30 text-[10px] font-bold px-2 py-1 rounded">En línea</span>
+                        </div>
+                        <div class="p-6 md:p-8 md:w-1/2 flex flex-col">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-2">01</p>
+                            <h3 class="text-2xl font-bold text-white mb-4">AXIOM <span class="text-primary text-lg" aria-hidden="true">↗</span></h3>
+                            <p class="text-slate-300 text-sm mb-3 leading-relaxed"><strong class="text-white">Problema.</strong> Hacía falta un lugar para buscar literatura científica en fuentes abiertas, guardarla y avisar cuando importa.</p>
+                            <p class="text-slate-300 text-sm mb-3 leading-relaxed"><strong class="text-white">Qué hice.</strong> Como FDE en AxSoftware, fases del frontend (login JWT, búsqueda, biblioteca y opt-in de SMS y WhatsApp) y del API (Prisma, colas, conectores académicos y avisos con Telnyx).</p>
+                            <p class="text-slate-300 text-sm mb-6 leading-relaxed"><strong class="text-white">Resultado.</strong> Prototipo en <a class="text-primary hover:text-white" href="https://axiom.axsoftware.codes" target="_blank" rel="noopener noreferrer">axiom.axsoftware.codes</a>. Repositorios privados: AxSoftwareLab/AXIOM y AXIOM-Back.</p>
+                            <ul class="flex flex-wrap gap-2 mb-6">
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">React</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">Vite</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">TypeScript</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">Express</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">Prisma</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">PostgreSQL</li>
+                            </ul>
+                            <div class="pt-4 border-t border-border mt-auto">
+                                <a href="https://axiom.axsoftware.codes" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-white transition-colors">Ver producto</a>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="tilt-card bg-surface rounded-xl overflow-hidden shadow-lg border border-border hover:border-accent/50 transition-all flex flex-col h-full">
-                        <div class="h-48 bg-slate-900 relative group overflow-hidden border-b border-border">
-                            <img src="assets/projects/Crudo-project.png" alt="Crudo Skate Shop" 
-                                class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105">
-                            <div class="absolute top-3 right-3 bg-gray-700/50 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm border border-gray-600">FULL STACK 🛠️</div>
-                        </div>
+                    </div></article>
 
-                        <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-white mb-3">Crudo Skate Shop</h3>
-                            <p class="text-gray-400 text-sm mb-6 leading-relaxed flex-1">
-                                E-commerce de moda urbana con diseño "street". Frontend React y Backend .NET.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">React</span>
-                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">.NET</span>
-                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">MySQL</span>
-                            </div>
-                            <div class="flex items-center justify-between pt-4 border-t border-border mt-auto">
-                                <a href="https://github.com/DacneR/client" target="_blank" class="flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-colors w-full justify-center"><span class="text-xl">🐙</span> Ver Código Fuente</a>
+                    <article class="reveal-card"><div class="tilt-surface bg-surface rounded-xl overflow-hidden shadow-lg border border-border hover:border-primary/50 transition-colors flex flex-col md:flex-row">
+                        <div class="md:w-1/2 h-56 md:h-auto bg-slate-900 relative overflow-hidden border-b md:border-b-0 md:border-r border-border">
+                            <img src="assets/projects/Rcafe-project.jpg" alt="Página de inicio de Relatos Café" width="1200" height="616" loading="lazy"
+                                class="w-full h-full object-cover object-top">
+                            <span class="absolute top-3 right-3 bg-slate-800/80 text-slate-100 border border-slate-600 text-[10px] font-bold px-2 py-1 rounded">Código público</span>
+                        </div>
+                        <div class="p-6 md:p-8 md:w-1/2 flex flex-col">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-2">02</p>
+                            <h3 class="text-2xl font-bold text-white mb-4">Relatos Café <span class="text-primary text-lg" aria-hidden="true">↗</span></h3>
+                            <p class="text-slate-300 text-sm mb-3 leading-relaxed"><strong class="text-white">Problema.</strong> Una tienda de café de especialidad necesitaba catálogo y sesión de usuario.</p>
+                            <p class="text-slate-300 text-sm mb-3 leading-relaxed"><strong class="text-white">Qué hice.</strong> La aplicación con Express, plantillas EJS, sesiones y MySQL.</p>
+                            <p class="text-slate-300 text-sm mb-6 leading-relaxed"><strong class="text-white">Resultado.</strong> Repositorio público. El dominio relatoscafe.com.co no responde ahora, así que no lo marco como sitio en línea.</p>
+                            <ul class="flex flex-wrap gap-2 mb-6">
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">Express</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">EJS</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">MySQL</li>
+                            </ul>
+                            <div class="pt-4 border-t border-border mt-auto">
+                                <a href="https://github.com/DacneR/Relatos-Caf-" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-white transition-colors">Ver código</a>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="tilt-card bg-surface rounded-xl overflow-hidden shadow-lg border border-border hover:border-purple-500/50 transition-all flex flex-col h-full">
-                        <div class="h-48 bg-gradient-to-br from-indigo-900 to-purple-900 relative group overflow-hidden border-b border-border flex items-center justify-center">
-                            <img src="assets/projects/Funnel-project.png" alt="Funnelhot" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105">
-                            <div class="absolute top-3 right-3 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">AI POWERED 🧠</div>
-                        </div>
+                    </div></article>
 
-                        <div class="p-6 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-white mb-3">Funnelhot Assistants</h3>
-                            <p class="text-gray-400 text-sm mb-6 leading-relaxed flex-1">
-                                Plataforma AI para crear agentes personalizados. Prompt Engineering + Next.js.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">Next.js</span>
-                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">React</span>
-                                <span class="px-2 py-1 bg-secondary text-gray-400 text-xs font-medium rounded-full border border-border">OpenAI</span>
-                            </div>
-                            <div class="flex items-center justify-between pt-4 border-t border-border mt-auto">
-                                <a href="https://github.com/DacneR/funnelhot-assistants.git" target="_blank" class="flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-colors w-full justify-center"><span class="text-xl">🐙</span> Ver Código Fuente</a>
+                    <article class="reveal-card"><div class="tilt-surface bg-surface rounded-xl overflow-hidden shadow-lg border border-border hover:border-primary/50 transition-colors flex flex-col md:flex-row">
+                        <div class="md:w-1/2 h-56 md:h-auto bg-slate-900 relative overflow-hidden border-b md:border-b-0 md:border-r border-border">
+                            <img src="assets/projects/Funnel-project.jpg" alt="Panel de asistentes de Funnelhot" width="1200" height="300" loading="lazy"
+                                class="w-full h-full object-cover object-top">
+                            <span class="absolute top-3 right-3 bg-slate-800/80 text-slate-100 border border-slate-600 text-[10px] font-bold px-2 py-1 rounded">Código público</span>
+                        </div>
+                        <div class="p-6 md:p-8 md:w-1/2 flex flex-col">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-2">03</p>
+                            <h3 class="text-2xl font-bold text-white mb-4">Funnelhot Assistants <span class="text-primary text-lg" aria-hidden="true">↗</span></h3>
+                            <p class="text-slate-300 text-sm mb-3 leading-relaxed"><strong class="text-white">Problema.</strong> Hacía falta un panel para listar, editar y abrir el chat de asistentes de ventas y soporte.</p>
+                            <p class="text-slate-300 text-sm mb-3 leading-relaxed"><strong class="text-white">Qué hice.</strong> La interfaz en Next.js, React y TypeScript, con formularios y estado en el cliente.</p>
+                            <p class="text-slate-300 text-sm mb-6 leading-relaxed"><strong class="text-white">Resultado.</strong> Repositorio público. El código no incluye un SDK de modelo de lenguaje, así que no lo presento como producto de IA conectado.</p>
+                            <ul class="flex flex-wrap gap-2 mb-6">
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">Next.js</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">React</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">TypeScript</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">Zod</li>
+                            </ul>
+                            <div class="pt-4 border-t border-border mt-auto">
+                                <a href="https://github.com/DacneR/funnelhot-assistants" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-white transition-colors">Ver código</a>
                             </div>
                         </div>
-                    </div>
+                    </div></article>
+
+                    <article class="reveal-card"><div class="tilt-surface bg-surface rounded-xl overflow-hidden shadow-lg border border-border hover:border-primary/50 transition-colors flex flex-col md:flex-row">
+                        <div class="md:w-1/2 h-56 md:h-auto bg-slate-900 relative overflow-hidden border-b md:border-b-0 md:border-r border-border">
+                            <img src="assets/projects/Crudo-project.jpg" alt="Comunidad y marca de Crudo" width="1200" height="616" loading="lazy"
+                                class="w-full h-full object-cover object-top">
+                            <span class="absolute top-3 right-3 bg-slate-800/80 text-slate-100 border border-slate-600 text-[10px] font-bold px-2 py-1 rounded">Código privado</span>
+                        </div>
+                        <div class="p-6 md:p-8 md:w-1/2 flex flex-col">
+                            <p class="text-xs tracking-[0.28em] text-primary mb-2">04</p>
+                            <h3 class="text-2xl font-bold text-white mb-4">Crudo <span class="text-primary text-lg" aria-hidden="true">↗</span></h3>
+                            <p class="text-slate-300 text-sm mb-3 leading-relaxed"><strong class="text-white">Problema.</strong> Una marca de skate necesitaba catálogo, comunidad y páginas de contacto y servicios.</p>
+                            <p class="text-slate-300 text-sm mb-3 leading-relaxed"><strong class="text-white">Qué hice.</strong> El frontend en React y TypeScript: inicio, productos, nosotros, blog y contacto, con carruseles y consumo de una API de productos.</p>
+                            <p class="text-slate-300 text-sm mb-6 leading-relaxed"><strong class="text-white">Resultado.</strong> El código está en un repositorio privado. Quien tenga acceso puede abrirlo.</p>
+                            <ul class="flex flex-wrap gap-2 mb-6">
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">React</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">TypeScript</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">Vite</li>
+                                <li class="px-2 py-1 bg-secondary text-slate-300 text-xs font-medium rounded-full border border-border">Tailwind</li>
+                            </ul>
+                            <div class="pt-4 border-t border-border mt-auto">
+                                <a href="https://github.com/DacneR/client" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-white transition-colors">Ver código</a>
+                            </div>
+                        </div>
+                    </div></article>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="py-20 bg-surface text-white border-t border-border">
             <div class="container mx-auto px-4 md:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative">
-                    Contacto y Referencias
-                    <div class="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-20 h-1 bg-primary rounded"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
+                    Contacto y referencias
                 </h2>
-                
+
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                   <div class="space-y-4 md:space-y-6">
-                        <div class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-colors">
-                            <span class="text-xl md:text-2xl">📞</span>
+                    <div class="space-y-4 md:space-y-6">
+                        <a href="https://wa.me/573242265806?text=Hola%20Dacner,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-secondary/50 rounded-xl border border-border hover:border-primary/30 transition-colors">
+                            <span class="text-xl md:text-2xl" aria-hidden="true">💬</span>
                             <div>
-                                <h3 class="text-lg md:text-xl font-bold text-primary mb-1 md:mb-2">Teléfono</h3>
-                                <p class="text-sm md:text-base">+57 3242265806</p>
+                                <h3 class="text-lg md:text-xl font-bold text-primary mb-1">WhatsApp</h3>
+                                <p class="text-sm md:text-base text-slate-200">Escribir con el mensaje del portafolio</p>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-colors">
-                            <span class="text-xl md:text-2xl">✉️</span>
+                        <a href="tel:+573242265806" class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-secondary/50 rounded-xl border border-border hover:border-primary/30 transition-colors">
+                            <span class="text-xl md:text-2xl" aria-hidden="true">📞</span>
                             <div>
-                                <h3 class="text-lg md:text-xl font-bold text-primary mb-1 md:mb-2">Email</h3>
-                                <p class="text-sm md:text-base break-all">Dacnerpiedrahita@gmail.com</p>
+                                <h3 class="text-lg md:text-xl font-bold text-primary mb-1">Teléfono</h3>
+                                <p class="text-sm md:text-base text-slate-200">+57 324 226 5806</p>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-colors">
-                            <span class="text-xl md:text-2xl">📍</span>
+                        <a href="mailto:dacnerpiedrahita@gmail.com" class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-secondary/50 rounded-xl border border-border hover:border-primary/30 transition-colors">
+                            <span class="text-xl md:text-2xl" aria-hidden="true">✉️</span>
                             <div>
-                                <h3 class="text-lg md:text-xl font-bold text-primary mb-1 md:mb-2">Ubicación</h3>
-                                <p class="text-sm md:text-base">Medellín, Colombia</p>
+                                <h3 class="text-lg md:text-xl font-bold text-primary mb-1">Correo</h3>
+                                <p class="text-sm md:text-base break-all text-slate-200">dacnerpiedrahita@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/DacneR" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-secondary/50 rounded-xl border border-border hover:border-primary/30 transition-colors">
+                            <span class="text-xl md:text-2xl" aria-hidden="true">🐙</span>
+                            <div>
+                                <h3 class="text-lg md:text-xl font-bold text-primary mb-1">GitHub</h3>
+                                <p class="text-sm md:text-base text-slate-200">github.com/DacneR</p>
+                            </div>
+                        </a>
+
+                        <div class="flex items-start gap-4 md:gap-6 p-4 md:p-6 bg-secondary/50 rounded-xl border border-border">
+                            <span class="text-xl md:text-2xl" aria-hidden="true">📍</span>
+                            <div>
+                                <h3 class="text-lg md:text-xl font-bold text-primary mb-1">Ubicación</h3>
+                                <p class="text-sm md:text-base text-slate-200">Medellín, Colombia</p>
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-bold text-primary mb-8">Referencias Profesionales</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-8">Referencias profesionales</h3>
                         <div class="space-y-6">
-                            <div class="p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border">
+                            <div class="p-6 bg-secondary/50 rounded-xl border border-border">
+                                <h4 class="text-xl font-bold mb-2">Andrés Zuluaga</h4>
+                                <p class="text-slate-300 mb-1">AxSoftware</p>
+                                <a href="tel:+573002672727" class="text-slate-200 hover:text-primary">300 267 2727</a>
+                            </div>
+                            <div class="p-6 bg-secondary/50 rounded-xl border border-border">
                                 <h4 class="text-xl font-bold mb-2">Ana Londoño</h4>
-                                <p class="text-gray-400 mb-1">Crystal S.A.S</p>
-                                <p>3207178762</p>
+                                <p class="text-slate-300 mb-1">Crystal S.A.S</p>
+                                <a href="tel:+573207178762" class="text-slate-200 hover:text-primary">320 717 8762</a>
                             </div>
-                            
-                            <div class="p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border">
+                            <div class="p-6 bg-secondary/50 rounded-xl border border-border">
                                 <h4 class="text-xl font-bold mb-2">Jenny Hernández</h4>
-                                <p class="text-gray-400 mb-1">Realnet</p>
-                                <p>302 2187951</p>
+                                <p class="text-slate-300 mb-1">Realnet</p>
+                                <a href="tel:+573022187951" class="text-slate-200 hover:text-primary">302 218 7951</a>
                             </div>
-                            
-                            <div class="p-6 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border">
+                            <div class="p-6 bg-secondary/50 rounded-xl border border-border">
                                 <h4 class="text-xl font-bold mb-2">Sebastián Orrego</h4>
-                                <p class="text-gray-400 mb-1">Crystal S.A.S</p>
-                                <p>3215717145</p>
+                                <p class="text-slate-300 mb-1">Crystal S.A.S</p>
+                                <a href="tel:+573215717145" class="text-slate-200 hover:text-primary">321 571 7145</a>
                             </div>
                         </div>
                     </div>
@@ -467,29 +582,28 @@
             </div>
         </section>
 
-        <footer class="py-12 bg-secondary text-white border-t border-border">
-            <div class="container mx-auto px-4 md:px-8">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p class="text-center md:text-left text-gray-500 text-sm">
-                        &copy; 2025 Dacner Patiño - Desarrollador de Software
-                    </p>
-                    <div class="flex items-center gap-6">
-                        <a href="mailto:Dacnerpiedrahita@gmail.com" class="text-gray-500 hover:text-primary transition-colors duration-300 transform hover:scale-110" title="Enviar Correo">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <footer class="py-16 bg-secondary text-white border-t border-border">
+            <div class="mx-auto flex max-w-sm flex-col items-center text-center gap-5 px-4">
+                    <div class="flex items-center justify-center gap-8">
+                        <a href="mailto:dacnerpiedrahita@gmail.com" class="text-slate-400 hover:text-primary transition-colors" title="Enviar correo" aria-label="Enviar correo">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                         </a>
-                        <a href="tel:+573242265806" class="text-gray-500 hover:text-primary transition-colors duration-300 transform hover:scale-110" title="Llamar">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.43-5.15-3.75-6.58-6.59l1.97-1.57c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.28 3 3.93 3 4.74c0 9.27 7.53 16.8 16.8 16.8.81 0 1.46-.65 1.46-1.19v-3.99c0-.54-.45-.99-.99-.99z"/></svg>
+                        <a href="tel:+573242265806" class="text-slate-400 hover:text-primary transition-colors" title="Llamar" aria-label="Llamar">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.43-5.15-3.75-6.58-6.59l1.97-1.57c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.28 3 3.93 3 4.74c0 9.27 7.53 16.8 16.8 16.8.81 0 1.46-.65 1.46-1.19v-3.99c0-.54-.45-.99-.99-.99z"/></svg>
                         </a>
-                        <a href="https://wa.me/573242265806?text=Hola%20Dacner,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte." target="_blank" class="text-gray-500 hover:text-[#25D366] transition-colors duration-300 transform hover:scale-110" title="WhatsApp">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        <a href="https://wa.me/573242265806?text=Hola%20Dacner,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-[#25D366] transition-colors" title="WhatsApp" aria-label="WhatsApp">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        </a>
+                        <a href="https://github.com/DacneR" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-primary transition-colors" title="GitHub" aria-label="GitHub">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56A10.52 10.52 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
                         </a>
                     </div>
-                </div>
+                    <p class="text-sm text-slate-200">Dacner Patiño</p>
+                    <p class="text-xs tracking-[0.22em] uppercase text-slate-400">Forward Deployed Engineer</p>
+                    <p class="text-[11px] text-slate-500">&copy; 2026 · Medellín</p>
             </div>
         </footer>
-
     </main>
-    <script src="js/script.js"></script>
-    
+    <script type="module" src="js/script.js"></script>
 </body>
 </html>

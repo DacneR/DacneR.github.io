@@ -1,0 +1,8 @@
+{
+  "name": "dacner.github.io",
+  "private": true,
+  "description": "Portafolio estático de Dacner Patiño",
+  "dependencies": {
+    "animejs": "^4.5.0"
+  }
+}
